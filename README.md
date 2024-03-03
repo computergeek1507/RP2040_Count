@@ -13,9 +13,12 @@ RP2040 Pixel Counter is a 'pocket' Pixel Counter. All the design files are open 
 
 To order PCBs upload the ["GERBER-RP2040_Count.zip"](https://github.com/computergeek1507/RP2040_Count/raw/main/PCB/jlcpcb/production_files/GERBER-RP2040_Count.zip) file in the "jlcpcb\production_files" folder to jlcpcb.com.
 
-[^Comment]:  ## [Part BOM](https://github.com/computergeek1507/RP2040_Count/raw/main/PCB/RP2040_Count_BOM.ods)
+![Video of RP2040 Count](https://youtu.be/7ThN9TBFA-g)
+
+## [Part BOM](https://github.com/computergeek1507/RP2040_Count/raw/main/PCB/RP2040_Count_BOM.ods)
 
 ## [Interactive BOM](https://computergeek1507.github.io/RP2040_Count/PCB/bom/ibom)
+
 ![Image of RP2040 Count](https://github.com/computergeek1507/RP2040_Count/raw/main/PXL_20240302_150726946.jpg)
 
 ![Image of RP2040 Count](https://github.com/computergeek1507/RP2040_Count/raw/main/Case/Case.bmp)

@@ -3405,6 +3405,24 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "1276-1005-1-ND"
+			(at 124.46 41.275 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CL10B104KO8NNNC"
+			(at 124.46 41.275 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "c38a26a7-e524-4205-a8e6-bc17b9c241a7")
 		)
@@ -3472,6 +3490,33 @@
 			)
 		)
 		(property "Description" ""
+			(at 126.365 65.405 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "311-10.0KHRCT-ND"
+			(at 126.365 65.405 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 126.365 65.405 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RC0603FR-0710KL"
 			(at 126.365 65.405 0)
 			(effects
 				(font
@@ -3595,7 +3640,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.amazon.com/Waveshare-RP2040-Tiny-Development-Raspberry-Microcontroller/dp/B0C4FC84V9"
 			(at 158.75 105.41 0)
 			(effects
 				(font
@@ -3808,6 +3853,42 @@
 			)
 		)
 		(property "Description" ""
+			(at 149.86 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "1276-1005-1-ND"
+			(at 149.86 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 149.86 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC_PN" "C14663"
+			(at 149.86 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CL10B104KO8NNNC"
 			(at 149.86 107.95 0)
 			(effects
 				(font
@@ -4282,6 +4363,33 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "311-10.0KHRCT-ND"
+			(at 132.715 65.405 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 132.715 65.405 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RC0603FR-0710KL"
+			(at 132.715 65.405 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "27f18888-0c61-4f08-bab8-40ae1fe40527")
 		)
@@ -4474,7 +4582,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.amazon.com/dp/B06XRBTBTB/ref=sspa_dk_detail_0"
 			(at 232.41 102.87 0)
 			(effects
 				(font
@@ -4492,7 +4600,7 @@
 				(hide yes)
 			)
 		)
-		(property "Digi-Key_PN" "S7002-ND"
+		(property "Digi-Key_PN" ""
 			(at 232.41 102.87 0)
 			(effects
 				(font
@@ -4501,7 +4609,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "PPTC041LFBN-RC"
+		(property "MPN" ""
 			(at 232.41 102.87 0)
 			(effects
 				(font
@@ -4510,7 +4618,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C225501"
+		(property "LCSC" ""
 			(at 232.41 102.87 0)
 			(effects
 				(font
@@ -4907,6 +5015,24 @@
 			)
 		)
 		(property "LCSC" "C2834918"
+			(at 238.125 125.095 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "CKN10880CT-ND"
+			(at 238.125 125.095 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "PTS645SL43SMTR92 LFS"
 			(at 238.125 125.095 0)
 			(effects
 				(font
@@ -5786,6 +5912,24 @@
 				(hide yes)
 			)
 		)
+		(property "Digi-Key_PN" "1276-1005-1-ND"
+			(at 203.2 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CL10B104KO8NNNC"
+			(at 203.2 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "024f695b-5c1c-4f98-b871-1e99b8bcf852")
 		)
@@ -5861,7 +6005,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC PN" "C138706"
+		(property "LCSC PN" ""
 			(at 116.205 57.785 0)
 			(effects
 				(font
@@ -5876,6 +6020,33 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "Digi-Key_PN" "296-27899-1-ND"
+			(at 116.205 57.785 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC_PN" "C138706"
+			(at 116.205 57.785 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "INA219BIDR"
+			(at 116.205 57.785 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -6068,6 +6239,33 @@
 			)
 		)
 		(property "Description" ""
+			(at 97.155 57.785 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digi-Key_PN" "CSRN2512FTR100CT-ND"
+			(at 97.155 57.785 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2903476"
+			(at 97.155 57.785 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CSRN2512FTR100"
 			(at 97.155 57.785 0)
 			(effects
 				(font
