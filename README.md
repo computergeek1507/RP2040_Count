@@ -17,6 +17,7 @@ To order PCBs upload the ["GERBER-RP2040_Count.zip"](https://github.com/computer
 
 The raw PCB's from JLC will be missing the RP2040-Tiny, OLED, Push Button and PigTails. These parts need to be soldered manually. The case is designed for flat pigtails.
 
+Print the case out of PETG with 0.1mm layer height. Use #2-56 3/8" machine screws for case.
 
 ## [Video of RP2040 Count](https://youtu.be/7ThN9TBFA-g)
 
