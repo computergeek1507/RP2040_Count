@@ -9,9 +9,9 @@ You may redistribute and modify this documentation under the terms of the CERN O
 
 # RP2040 Count
 
-RP2040 Pixel Counter is a 'pocket' Pixel Counter. All the design files are open source and available on github.
+RP2040 Pixel Counter is a 'pocket' Pixel Counter. It uses a Waveshare RP2040-Tiny Development Board.  All the design files are open source and available on github.
 
-To order PCBs upload the ["GERBER-RP2040_Count.zip"](https://github.com/computergeek1507/RP2040_Count/raw/main/PCB/jlcpcb/production_files/GERBER-RP2040_Count.zip) file in the "jlcpcb\production_files" folder to jlcpcb.com.
+To order PCBs upload the ["GERBER-RP2040_Count.zip"](https://github.com/computergeek1507/RP2040_Count/raw/main/PCB/jlcpcb/production_files/GERBER-RP2040_Count.zip) file in the "PCB\jlcpcb\production_files" folder to jlcpcb.com.
 
 ## [Video of RP2040 Count](https://youtu.be/7ThN9TBFA-g)
 
