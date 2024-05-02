@@ -33,9 +33,9 @@ jobs:
       with:
         lfs: true
         
-    - name: DRC PB_16v1 Files
+    - name: DRC RP2040_Count Files
       run: |
-        cd pcb
+        cd PCB
         rm -rf RP2040_Count/
         kibot -c ../.github/workflows/scripts/kibot/drc.config.kibot.yaml -e RP2040_Count.kicad_sch -b RP2040_Count.kicad_pcb -d RP2040_Count
 
@@ -46,6 +46,6 @@ jobs:
       with:
         name: output
         path: |
-          pcb/RP2040_Count/**
+          PCB/RP2040_Count/**
         if-no-files-found: error
         retention-days: 60
