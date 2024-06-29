@@ -36,6 +36,7 @@ jobs:
              - source-url: https://github.com/adafruit/Adafruit_SSD1306.git
              - source-url: https://github.com/adafruit/Adafruit_INA219.git
              - source-url: https://github.com/adafruit/Adafruit_NeoPixel.git
+             - source-url: https://github.com/adafruit/Adafruit_BusIO.git
           fqbn: "rp2040:rp2040:seeed_xiao_rp2040"
 
 
