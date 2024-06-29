@@ -1,0 +1,51 @@
+name: DRC Files
+on:
+  push:
+    paths:
+      - '**.kicad_sch'
+      - '**.kicad_pcb'
+
+  pull_request:
+    paths:
+      - '**.kicad_sch'
+      - '**.kicad_pcb'
+      
+  workflow_dispatch:
+
+jobs:
+  drc-files:
+    name: DRC Everything
+    runs-on: ubuntu-latest
+    container: ghcr.io/inti-cmnb/kicad8_auto:1.6.5
+      
+    steps:
+
+    - name: Generate Short SHA Environment Variable
+      run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
+      
+    - name: Update system repositories, Install Required Libraries and Initialize git-lfs
+      run: |
+        apt update
+        apt -y install git git-lfs zip librsvg2-bin imagemagick
+        git lfs install
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+      with:
+        lfs: true
+        
+    - name: DRC RP2040_Count Files
+      run: |
+        cd PCB
+        rm -rf RP2040_Count/
+        kibot -c ../.github/workflows/scripts/kibot/drc.config.kibot.yaml -e RP2040_Count.kicad_sch -b RP2040_Count.kicad_pcb -d RP2040_Count
+
+   
+
+    - name: Upload Export Files as Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: output
+        path: |
+          PCB/RP2040_Count/**
+        if-no-files-found: error
+        retention-days: 60
