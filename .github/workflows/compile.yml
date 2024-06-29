@@ -31,5 +31,6 @@ jobs:
             - ./Firmware
           libraries: |
             # The "blink" sketch being compiled in this demo doesn't use any libraries, so just use an empty list
-            - Adafruit_GFX
+            - name: Adafruit_GFX
+
 
