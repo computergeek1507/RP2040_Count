@@ -38,11 +38,13 @@ jobs:
              - source-url: https://github.com/adafruit/Adafruit_NeoPixel.git
              - source-url: https://github.com/adafruit/Adafruit_BusIO.git
           fqbn: "rp2040:rp2040:seeed_xiao_rp2040"
+          cli-compile-flags: |
+            - --export-binaries
 
       - name: Upload Export Files as Artifacts
         uses: actions/upload-artifact@v2
         with:
           name: ufu
-          path: /tmp/compilesketches*/*.uf2
+          path: ./Firmware/RP2040_Count/*.uf2
           if-no-files-found: error
           retention-days: 60
