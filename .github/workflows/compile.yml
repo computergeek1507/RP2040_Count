@@ -44,7 +44,7 @@ jobs:
       - name: Upload Export Files as Artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: ufu
+          name: uf2
           path: ./Firmware/RP2040_Count/*.uf2
           if-no-files-found: error
           retention-days: 60
