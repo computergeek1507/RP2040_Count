@@ -43,6 +43,6 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: ufu
-          path: ./*.uf2
+          path: /tmp/compilesketches*/*.uf2
           if-no-files-found: error
           retention-days: 60
