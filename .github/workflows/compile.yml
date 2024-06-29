@@ -23,7 +23,7 @@ jobs:
             - name: arduino:avr
             # Overwrite the Boards Manager installation with the development version of the platform.
             - source-url: https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
-              name: arduino:seeed_xiao_rp2040
+              name: rp2040:seeed_xiao_rp2040
           # The default is to compile for the Arduino Uno board. If you want to compile for other boards, use the `fqbn` input.
           sketch-paths: |
             # Configure the action to search all folders under the root of the repository for sketches and compile them.
