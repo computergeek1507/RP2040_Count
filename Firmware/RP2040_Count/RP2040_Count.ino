@@ -4,24 +4,39 @@
 #include <Adafruit_INA219.h>
 #include <Adafruit_NeoPixel.h>
 
+//#define  VERSION1
+#define  VERSION2
+
+#if defined(VERSION1)
+#define PIXEL_PIN    14  // Digital IO pin connected to the NeoPixels.
+#define BUTTON_A_PIN  13
+#define I2C_SDA_PIN  10
+#define I2C_SCL_PIN  11
+#define WIRE_DEVICE Wire1
+#endif
+
+#if defined(VERSION2)
+#define PIXEL_PIN    D6  // Digital IO pin connected to the NeoPixels.
+#define BUTTON_A_PIN  D7
+#define I2C_SDA_PIN  PIN_WIRE0_SDA
+#define I2C_SCL_PIN  PIN_WIRE0_SCL
+#define WIRE_DEVICE Wire
+#endif
+
+#define PIXEL_COUNT 300  // Number of NeoPixels
+#define PIXEL_CURRENT_DIFF 5
+#define CURRENT_READ_DELAY 5
+
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
 #define OLED_RESET     -1 // Reset pin # (or -1 if sharing Arduino reset pin)
 #define SCREEN_ADDRESS 0x3C  // Address 0x3C default
 
-Adafruit_SSD1306 display = Adafruit_SSD1306(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire1, OLED_RESET);
+Adafruit_SSD1306 display = Adafruit_SSD1306(SCREEN_WIDTH, SCREEN_HEIGHT, &WIRE_DEVICE, OLED_RESET);
 Adafruit_INA219 ina219;
-
-#define PIXEL_PIN    14  // Digital IO pin connected to the NeoPixels.
-#define PIXEL_COUNT 300  // Number of NeoPixels
 
 // Declare our NeoPixel strip object:
 Adafruit_NeoPixel strip(PIXEL_COUNT, PIXEL_PIN, NEO_RGB + NEO_KHZ800);
-
-#define BUTTON_A  13
-
-#define PIXEL_CURRENT_DIFF 5
-#define CURRENT_READ_DELAY 5
 
 boolean oldState = HIGH;
 uint32_t pixel_count = 0;
@@ -31,14 +46,14 @@ void setup() {
   Serial.begin(115200);
   //delay(3000);//serial debug doesnt work without this
   Serial.println("Starting Pixel Tester");
-  Wire1.setSDA(10);
-  Wire1.setSCL(11);
+  WIRE_DEVICE.setSDA(I2C_SDA_PIN);
+  WIRE_DEVICE.setSCL(I2C_SCL_PIN);
   Serial.println("INA219 begin");
-  if (!ina219.begin(&Wire1)) {
+  if (!ina219.begin(&WIRE_DEVICE)) {
     Serial.println("Failed to find INA219 chip");
     while (1) { delay(10); }
   }
-  pinMode(BUTTON_A, INPUT_PULLUP);
+  pinMode(BUTTON_A_PIN, INPUT_PULLUP);
   strip.begin(); // Initialize NeoPixel strip object (REQUIRED)
   strip.show();  // Initialize all pixels to 'off'
 
@@ -66,14 +81,14 @@ void setup() {
 }
 
 void loop() {
-  boolean newState = digitalRead(BUTTON_A);
+  boolean newState = digitalRead(BUTTON_A_PIN);
 
   // Check if state changed from high to low (button press).
   if((newState == LOW) && (oldState == HIGH)) {
     // Short delay to debounce button.
     delay(20);
     // Check if button is still low after debounce.
-    newState = digitalRead(BUTTON_A);
+    newState = digitalRead(BUTTON_A_PIN);
     if(newState == LOW) { 
       for(int i = 0; i< strip.numPixels(); i++) {
         strip.setPixelColor(i, strip.Color(0,0,0));  
