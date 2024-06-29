@@ -31,6 +31,11 @@ jobs:
             - ./Firmware
           libraries: |
             # The "blink" sketch being compiled in this demo doesn't use any libraries, so just use an empty list
-            - name: Adafruit_GFX
+            #- name: Adafruit_GFX
+             - source-url: https://github.com/adafruit/Adafruit-GFX-Library.git
+             - source-url: https://github.com/adafruit/Adafruit_SSD1306.git
+             - source-url: https://github.com/adafruit/Adafruit_INA219.git
+             - source-url: https://github.com/adafruit/Adafruit_NeoPixel.git
+          fqbn: "rp2040:rp2040:seeed_xiao_rp2040"
 
 
