@@ -3,9 +3,11 @@
 #include <Adafruit_SSD1306.h>
 #include <Adafruit_INA219.h>
 #include <Adafruit_NeoPixel.h>
+#include <OneButton.h>
 
 //#define  VERSION1
 #define  VERSION2
+//#define  ON_BOARD_LED
 
 #if defined(VERSION1)
 #define PIXEL_PIN    14  // Digital IO pin connected to the NeoPixels.
@@ -13,6 +15,7 @@
 #define I2C_SDA_PIN  10
 #define I2C_SCL_PIN  11
 #define WIRE_DEVICE Wire1
+#define PIXEL2_PIN    16
 #endif
 
 #if defined(VERSION2)
@@ -21,9 +24,12 @@
 #define I2C_SDA_PIN  PIN_WIRE0_SDA
 #define I2C_SCL_PIN  PIN_WIRE0_SCL
 #define WIRE_DEVICE Wire
+#define PIXEL2_PIN    12
+int PIXEL2_Power = 11;
 #endif
 
-#define PIXEL_COUNT 300  // Number of NeoPixels
+#define PIXEL_COUNT 401  // Number of NeoPixels
+#define PIXEL2_COUNT 1  // Number of NeoPixels
 #define PIXEL_CURRENT_DIFF 5
 #define CURRENT_READ_DELAY 5
 
@@ -35,12 +41,21 @@
 Adafruit_SSD1306 display = Adafruit_SSD1306(SCREEN_WIDTH, SCREEN_HEIGHT, &WIRE_DEVICE, OLED_RESET);
 Adafruit_INA219 ina219;
 
-// Declare our NeoPixel strip object:
-Adafruit_NeoPixel strip(PIXEL_COUNT, PIXEL_PIN, NEO_RGB + NEO_KHZ800);
 
-boolean oldState = HIGH;
+Adafruit_NeoPixel strip(PIXEL_COUNT, PIXEL_PIN, NEO_RGB + NEO_KHZ800);
+#if defined(ON_BOARD_LED)
+Adafruit_NeoPixel strip2(PIXEL2_COUNT, PIXEL2_PIN, NEO_GRB + NEO_KHZ800);
+#endif
+
+OneButton button = OneButton(
+  BUTTON_A_PIN,  // Input pin for the button
+  true,        // Button is active LOW
+  true         // Enable internal pull-up resistor
+);
+
 uint32_t pixel_count = 0;
 uint16_t color = 0;
+volatile int     mode     = 0; 
 
 void setup() {
   Serial.begin(115200);
@@ -53,9 +68,19 @@ void setup() {
     Serial.println("Failed to find INA219 chip");
     while (1) { delay(10); }
   }
-  pinMode(BUTTON_A_PIN, INPUT_PULLUP);
+#if defined(ON_BOARD_LED)
+#if defined(VERSION2)
+  pinMode(PIXEL2_Power,OUTPUT);
+  digitalWrite(PIXEL2_Power, HIGH);
+#endif
+#endif
   strip.begin(); // Initialize NeoPixel strip object (REQUIRED)
   strip.show();  // Initialize all pixels to 'off'
+
+#if defined(ON_BOARD_LED) 
+  strip2.begin();
+  strip2.show(); 
+#endif
 
   Serial.println("OLED begin");
   delay(250); // wait for the OLED to power up
@@ -78,22 +103,80 @@ void setup() {
   display.setCursor(0,0);
 
   display.display(); // actually display all of the above
+
+  button.attachPress(ShortPress, &button);
+  button.attachLongPressStart(LongPress, &button);
+  button.setDebounceMs(20);
+  button.setLongPressIntervalMs(800);
 }
 
 void loop() {
-  boolean newState = digitalRead(BUTTON_A_PIN);
+  button.tick();
 
-  // Check if state changed from high to low (button press).
-  if((newState == LOW) && (oldState == HIGH)) {
-    // Short delay to debounce button.
-    delay(20);
-    // Check if button is still low after debounce.
-    newState = digitalRead(BUTTON_A_PIN);
-    if(newState == LOW) { 
-      for(int i = 0; i< strip.numPixels(); i++) {
+  // Set the last-read button state to the old state.
+  color++;
+  if(color > 255) {
+    color = 0;
+  }
+  //rainbowCycle(color);
+  String mode_str;
+  switch(mode) {           // Start the new animation...
+        case 0:
+            rainbowCycle(color);
+            mode_str ="Rainbow";
+          break;
+        case 1:
+          set_color(strip.Color(255,   0,   0));    // Red
+          mode_str ="Red";
+          break;
+        case 2:
+          set_color(strip.Color(  0, 255,   0));    // Green
+          mode_str ="Green";
+          break;
+        case 3:
+          set_color(strip.Color(  0,   0, 255));    // Blue
+          mode_str ="Blue";
+          break;
+        case 4:
+          set_color(strip.Color(  127,   127,   127));    // 50 White
+          mode_str ="50% White";
+          break;
+        case 5:
+          set_color(strip.Color(  255,   255,   255));    // 100 White
+          mode_str ="100% White";
+          break;
+        case 6:
+          set_color(strip.Color(  0,   0,   0));    // black
+          mode_str ="Off";
+          break;
+      }
+
+
+  delay(10);
+  yield();
+  update_power_display(pixel_count, mode_str);
+  display.display();
+}
+
+void ShortPress(void *oneButton)
+{
+  if(++mode > 6){ mode = 0;} // Advance to next mode, wrap around after #8
+      
+}
+
+// this function will be called when the button is released.
+void LongPress(void *oneButton)
+{
+  for(int i = 0; i< strip.numPixels(); i++) {
         strip.setPixelColor(i, strip.Color(0,0,0));  
       }
       strip.show();  
+#if defined(ON_BOARD_LED)
+      for(int i = 0; i< strip2.numPixels(); i++) {
+        strip2.setPixelColor(i, strip.Color(0,0,0));  
+      }
+      strip2.show();
+#endif
       delay(50);
 
       float off_current = ina219.getCurrent_mA(); //55ma on a 50pix bullet string all off
@@ -112,7 +195,7 @@ void loop() {
         yield();
 
         float on_current = ina219.getCurrent_mA(); //100ma on on 50pix bullet string with one on
-        update_power_display(ledidx + 1);
+        update_power_display(ledidx + 1, "Counting");
         display.display();
 
         if((on_current - off_current) < PIXEL_CURRENT_DIFF) {
@@ -120,23 +203,10 @@ void loop() {
           break;
         }
       }
-    }
-  }
-
-  // Set the last-read button state to the old state.
-  oldState = newState;
-  color++;
-  if(color > 255) {
-    color = 0;
-  }
-  rainbowCycle(color);
-  delay(10);
-  yield();
-  update_power_display(pixel_count);
-  display.display();
 }
 
-void update_power_display(int pixelNum) {
+
+void update_power_display(int pixelNum, String const& mode_str  ) {
   // Read voltage and current from INA219.
   float shuntvoltage = ina219.getShuntVoltage_mV();
   float busvoltage = ina219.getBusVoltage_V();
@@ -157,6 +227,9 @@ void update_power_display(int pixelNum) {
   printSIValue(loadvoltage, "V:", 2, 10);
   display.setCursor(0, 32);
   printSIValue(current_mA/1000.0, "A:", 5, 10);
+
+  display.setCursor(0, 47);
+  display.print(mode_str);
 
   display.display();
 }
@@ -214,11 +287,31 @@ void printSIValue(float value, const char* units, int precision, int maxWidth) {
   display.print(value, actualPrecision);
 }
 
+void set_color(uint32_t color) {
+  for(int i=0; i<strip.numPixels(); i++) { // For each pixel in strip...
+    strip.setPixelColor(i, color);         //  Set pixel's color (in RAM)
+
+  }
+  strip.show();
+#if defined(ON_BOARD_LED)
+  for(int i=0; i<strip2.numPixels(); i++) { 
+    strip2.setPixelColor(i, color); 
+  }
+  strip2.show();
+#endif
+}
+
 void rainbowCycle(uint16_t color) {
     for(uint16_t i=0; i< strip.numPixels(); i++) {
       strip.setPixelColor(i, Wheel(((i * 256 / strip.numPixels()) + color) & 255));
     }
     strip.show();
+#if defined(ON_BOARD_LED)
+    for(uint16_t i=0; i< strip2.numPixels(); i++) {
+      strip2.setPixelColor(i, Wheel(((i * 256 / strip.numPixels()) + color) & 255));
+    }
+    strip2.show();
+#endif
 }
 
 // Input a value 0 to 255 to get a color value.
