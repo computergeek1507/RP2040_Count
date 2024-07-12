@@ -31,7 +31,7 @@ int PIXEL2_Power = 11;
 #define PIXEL_COUNT 401  // Number of NeoPixels
 #define PIXEL2_COUNT 1  // Number of NeoPixels
 #define PIXEL_CURRENT_DIFF 5
-#define CURRENT_READ_DELAY 5
+#define CURRENT_READ_DELAY 10
 
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
@@ -108,12 +108,14 @@ void setup() {
   button.attachLongPressStart(LongPress, &button);
   button.setDebounceMs(20);
   button.setLongPressIntervalMs(800);
+  delay(100);
+  countPixels();
 }
 
 void loop() {
   button.tick();
 
-  // Set the last-read button state to the old state.
+  //loop color for ranbow
   color++;
   if(color > 255) {
     color = 0;
@@ -121,36 +123,35 @@ void loop() {
   //rainbowCycle(color);
   String mode_str;
   switch(mode) {           // Start the new animation...
-        case 0:
-            rainbowCycle(color);
-            mode_str ="Rainbow";
-          break;
-        case 1:
-          set_color(strip.Color(255,   0,   0));    // Red
-          mode_str ="Red";
-          break;
-        case 2:
-          set_color(strip.Color(  0, 255,   0));    // Green
-          mode_str ="Green";
-          break;
-        case 3:
-          set_color(strip.Color(  0,   0, 255));    // Blue
-          mode_str ="Blue";
-          break;
-        case 4:
-          set_color(strip.Color(  127,   127,   127));    // 50 White
-          mode_str ="50% White";
-          break;
-        case 5:
-          set_color(strip.Color(  255,   255,   255));    // 100 White
-          mode_str ="100% White";
-          break;
-        case 6:
-          set_color(strip.Color(  0,   0,   0));    // black
-          mode_str ="Off";
-          break;
-      }
-
+    case 0:
+        rainbowCycle(color);
+        mode_str ="Rainbow";
+      break;
+    case 1:
+      set_color(strip.Color(255,0,0));// Red
+      mode_str ="Red";
+      break;
+    case 2:
+      set_color(strip.Color(0,255,0));    // Green
+      mode_str ="Green";
+      break;
+    case 3:
+      set_color(strip.Color(0,0,255));    // Blue
+      mode_str ="Blue";
+      break;
+    case 4:
+      set_color(strip.Color(127,127,127));    // 50% White
+      mode_str ="50% White";
+      break;
+    case 5:
+      set_color(strip.Color(255,255,255));    // 100% White
+      mode_str ="100% White";
+      break;
+    case 6:
+      set_color(strip.Color(0,0,0));    // black
+      mode_str ="Off";
+      break;
+  }
 
   delay(10);
   yield();
@@ -160,50 +161,100 @@ void loop() {
 
 void ShortPress(void *oneButton)
 {
-  if(++mode > 6){ mode = 0;} // Advance to next mode, wrap around after #8
-      
+  // Advance to next test mode, wrap around after 6
+  if(++mode > 6) { 
+    mode = 0;
+  }      
 }
 
 // this function will be called when the button is released.
 void LongPress(void *oneButton)
 {
-  for(int i = 0; i< strip.numPixels(); i++) {
-        strip.setPixelColor(i, strip.Color(0,0,0));  
-      }
-      strip.show();  
-#if defined(ON_BOARD_LED)
-      for(int i = 0; i< strip2.numPixels(); i++) {
-        strip2.setPixelColor(i, strip.Color(0,0,0));  
-      }
-      strip2.show();
-#endif
-      delay(50);
-
-      float off_current = ina219.getCurrent_mA(); //55ma on a 50pix bullet string all off
-
-      for(int ledidx = 0; ledidx < strip.numPixels(); ledidx++) { 
-        for(int dot = 0; dot < strip.numPixels(); dot++) {
-          if(dot == ledidx) {
-            strip.setPixelColor(dot, strip.Color(255,255,255));
-          }
-          else {
-            strip.setPixelColor(dot, strip.Color(0,0,0));
-          }
-        }
-        strip.show();
-        delay(CURRENT_READ_DELAY);
-        yield();
-
-        float on_current = ina219.getCurrent_mA(); //100ma on on 50pix bullet string with one on
-        update_power_display(ledidx + 1, "Counting");
-        display.display();
-
-        if((on_current - off_current) < PIXEL_CURRENT_DIFF) {
-          pixel_count = ledidx;
-          break;
-        }
-      }
+  countPixels();
 }
+
+void countPixels()
+{
+  for(int i = 0; i< strip.numPixels(); i++) {
+    strip.setPixelColor(i, strip.Color(0,0,0));  
+  }
+  strip.show();  
+
+#if defined(ON_BOARD_LED)
+  for(int i=0; i<strip2.numPixels(); i++) { 
+    strip2.setPixelColor(i, strip2.Color(0,0,0)); 
+  }
+  strip2.show();
+#endif
+  delay(50);
+
+  float off_current = ina219.getCurrent_mA(); //55ma on a 50pix bullet string all off
+
+  int count = findTransitionPoint(strip.numPixels(),off_current);
+  if(-1 != count)
+  {
+    pixel_count = count;
+  }
+}
+
+void TurnOnLED(int ledidx) 
+{
+  for(int dot = 0; dot < strip.numPixels(); dot++) {
+    if(dot == ledidx) {
+      strip.setPixelColor(dot, strip.Color(255,255,255));
+    }
+    else {
+      strip.setPixelColor(dot, strip.Color(0,0,0));
+    }
+  }
+  strip.show();
+  delay(CURRENT_READ_DELAY);
+  yield();
+}
+
+bool IsLEDOn(int ledidx, float off_current ) 
+{
+  TurnOnLED(ledidx);
+  float on_current = ina219.getCurrent_mA(); //100ma on on 50pix bullet string with one on
+  if((on_current - off_current) < PIXEL_CURRENT_DIFF) {
+          return false;
+  }
+  return true;
+}
+
+//use binary serach to find Transition Point from on to off
+int findTransitionPoint(int n, float off_current) 
+{ 
+    // Initialise lower and upper bounds 
+    int lb = 0;
+    int ub = n-1; 
+  
+    // Perform Binary search 
+    while (lb <= ub) 
+    { 
+        // Find mid 
+        int mid = (lb + ub) / 2; 
+        update_power_display(mid, "Counting");
+        display.display();
+  
+        // update lower_bound to mid if mid is on
+        if (IsLEDOn(mid, off_current)) {
+            lb = mid + 1; 
+        }
+        else {// If mid is off 
+            // Check if it is the left most 1 
+            // Return mid, if yes 
+            if (mid == 0 || (mid > 0 &&  
+              IsLEDOn(mid - 1, off_current))) {
+                return mid; 
+            }
+  
+            // Else update upper_bound 
+            ub = mid-1; 
+        } 
+    } 
+    return -1; 
+} 
 
 
 void update_power_display(int pixelNum, String const& mode_str  ) {
