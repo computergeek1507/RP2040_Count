@@ -37,6 +37,7 @@ jobs:
              - source-url: https://github.com/adafruit/Adafruit_INA219.git
              - source-url: https://github.com/adafruit/Adafruit_NeoPixel.git
              - source-url: https://github.com/adafruit/Adafruit_BusIO.git
+             - source-url: https://github.com/mathertel/OneButton.git
           fqbn: "rp2040:rp2040:seeed_xiao_rp2040"
           #fqbn: "rp2040:rp2040:rpipico"
           cli-compile-flags: |
