@@ -44,7 +44,7 @@ jobs:
             - --export-binaries
 
       - name: Upload Export Files as Artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: uf2
           path: ./Firmware/RP2040_Count/*.uf2
