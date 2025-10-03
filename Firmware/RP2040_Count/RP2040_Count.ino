@@ -128,26 +128,30 @@ void loop() {
         mode_str ="Rainbow";
       break;
     case 1:
+      setColorWith50();
+      mode_str ="Every 50";
+      break;
+    case 2:
       set_color(strip.Color(255,0,0));// Red
       mode_str ="Red";
       break;
-    case 2:
+    case 3:
       set_color(strip.Color(0,255,0));    // Green
       mode_str ="Green";
       break;
-    case 3:
+    case 4:
       set_color(strip.Color(0,0,255));    // Blue
       mode_str ="Blue";
       break;
-    case 4:
+    case 5:
       set_color(strip.Color(127,127,127));    // 50% White
       mode_str ="50% White";
       break;
-    case 5:
+    case 6:
       set_color(strip.Color(255,255,255));    // 100% White
       mode_str ="100% White";
       break;
-    case 6:
+    case 7:
       set_color(strip.Color(0,0,0));    // black
       mode_str ="Off";
       break;
@@ -162,7 +166,7 @@ void loop() {
 void ShortPress(void *oneButton)
 {
   // Advance to next test mode, wrap around after 6
-  if(++mode > 6) { 
+  if(++mode > 7) { 
     mode = 0;
   }      
 }
@@ -217,7 +221,7 @@ bool IsLEDOn(int ledidx, float off_current )
   TurnOnLED(ledidx);
   float on_current = ina219.getCurrent_mA(); //100ma on on 50pix bullet string with one on
   if((on_current - off_current) < PIXEL_CURRENT_DIFF) {
-          return false;
+     return false;
   }
   return true;
 }
@@ -228,7 +232,7 @@ int findTransitionPoint(int n, float off_current)
     // Initialise lower and upper bounds 
     int lb = 0;
     int ub = n-1; 
-  
+
     // Perform Binary search 
     while (lb <= ub) 
     { 
@@ -236,7 +240,7 @@ int findTransitionPoint(int n, float off_current)
         int mid = (lb + ub) / 2; 
         update_power_display(mid, "Counting");
         display.display();
-  
+
         // update lower_bound to mid if mid is on
         if (IsLEDOn(mid, off_current)) {
             lb = mid + 1; 
@@ -248,7 +252,7 @@ int findTransitionPoint(int n, float off_current)
               IsLEDOn(mid - 1, off_current))) {
                 return mid; 
             }
-  
+
             // Else update upper_bound 
             ub = mid-1; 
         } 
@@ -360,6 +364,26 @@ void rainbowCycle(uint16_t color) {
 #if defined(ON_BOARD_LED)
     for(uint16_t i=0; i< strip2.numPixels(); i++) {
       strip2.setPixelColor(i, Wheel(((i * 256 / strip.numPixels()) + color) & 255));
+    }
+    strip2.show();
+#endif
+}
+void setColorWith50() {
+    for(int i=0; i<strip.numPixels(); i++) {
+      if ((i +1) % 50 == 0 && i != 0) { // Add i != 0 to avoid triggering on the first iteration (i=0)
+        strip.setPixelColor(i, strip.Color(255,255,255));
+      } else {
+        strip.setPixelColor(i, strip.Color(255,0,0));
+      }
+    }
+    strip.show();
+#if defined(ON_BOARD_LED)
+    for(uint16_t i=0; i< strip2.numPixels(); i++) {
+      if ((i +1) % 50 == 0 && i != 0) { // Add i != 0 to avoid triggering on the first iteration (i=0)
+        strip2.setPixelColor(i, strip2.Color(255,255,255));
+      } else {
+        strip2.setPixelColor(i, strip2.Color(255,0,0));
+      }
     }
     strip2.show();
 #endif
