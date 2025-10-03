@@ -7,7 +7,7 @@
 	(title_block
 		(title "RP2040 Count")
 		(date "2024-02-11")
-		(rev "v2")
+		(rev "v1")
 	)
 	(lib_symbols
 		(symbol "74xGxx:74AHCT1G125"
@@ -2916,7 +2916,6 @@
 	)
 	(label "DOUT1"
 		(at 213.995 55.88 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2927,7 +2926,6 @@
 	)
 	(label "PWR"
 		(at 49.53 118.11 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4252,7 +4250,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC_PN" "C7484"
+		(property "LCSC_PN" "C138706"
 			(at 200.025 55.88 0)
 			(effects
 				(font
@@ -4270,7 +4268,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C7484"
+		(property "LCSC" "C138706"
 			(at 200.025 55.88 0)
 			(effects
 				(font
@@ -4618,7 +4616,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C225501"
 			(at 232.41 102.87 0)
 			(effects
 				(font
@@ -4866,7 +4864,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC_PN" ""
+		(property "LCSC_PN" "C23140"
 			(at 31.115 88.265 0)
 			(effects
 				(font
@@ -6256,7 +6254,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C2903476"
+		(property "LCSC" "C23140"
 			(at 97.155 57.785 0)
 			(effects
 				(font
