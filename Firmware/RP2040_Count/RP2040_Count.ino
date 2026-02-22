@@ -28,7 +28,7 @@
 int PIXEL2_Power = 11;
 #endif
 
-#define PIXEL_COUNT 401  // Number of NeoPixels
+#define PIXEL_COUNT 501  // Number of NeoPixels
 #define PIXEL2_COUNT 1  // Number of NeoPixels
 #define PIXEL_CURRENT_DIFF 5
 #define CURRENT_READ_DELAY 10
@@ -44,7 +44,7 @@ Adafruit_INA219 ina219;
 
 Adafruit_NeoPixel strip(PIXEL_COUNT, PIXEL_PIN, NEO_RGB + NEO_KHZ800);
 #if defined(ON_BOARD_LED)
-Adafruit_NeoPixel strip2(PIXEL2_COUNT, PIXEL2_PIN, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip2(PIXEL2_COUNT, PIXEL2_PIN, NEO_RGB + NEO_KHZ800);
 #endif
 
 OneButton button = OneButton(
@@ -128,8 +128,8 @@ void loop() {
         mode_str ="Rainbow";
       break;
     case 1:
-      setColorWith50();
-      mode_str ="Every 50";
+        setColorWith50();
+        mode_str ="Every 50";
       break;
     case 2:
       set_color(strip.Color(255,0,0));// Red
@@ -221,7 +221,7 @@ bool IsLEDOn(int ledidx, float off_current )
   TurnOnLED(ledidx);
   float on_current = ina219.getCurrent_mA(); //100ma on on 50pix bullet string with one on
   if((on_current - off_current) < PIXEL_CURRENT_DIFF) {
-     return false;
+          return false;
   }
   return true;
 }
@@ -371,19 +371,20 @@ void rainbowCycle(uint16_t color) {
 void setColorWith50() {
     for(int i=0; i<strip.numPixels(); i++) {
       if ((i +1) % 50 == 0 && i != 0) { // Add i != 0 to avoid triggering on the first iteration (i=0)
-        strip.setPixelColor(i, strip.Color(255,255,255));
-      } else {
-        strip.setPixelColor(i, strip.Color(255,0,0));
-      }
+          strip.setPixelColor(i, strip.Color(255,255,255));
+
+        } else {
+          strip.setPixelColor(i, strip.Color(255,0,0));
+        }
     }
     strip.show();
 #if defined(ON_BOARD_LED)
     for(uint16_t i=0; i< strip2.numPixels(); i++) {
       if ((i +1) % 50 == 0 && i != 0) { // Add i != 0 to avoid triggering on the first iteration (i=0)
-        strip2.setPixelColor(i, strip2.Color(255,255,255));
-      } else {
-        strip2.setPixelColor(i, strip2.Color(255,0,0));
-      }
+          strip2.setPixelColor(i, strip2.Color(255,255,255));
+        } else {
+          strip2.setPixelColor(i, strip2.Color(255,0,0));
+        }
     }
     strip2.show();
 #endif
