@@ -28,10 +28,16 @@
 int PIXEL2_Power = 11;
 #endif
 
-#define PIXEL_COUNT 501  // Number of NeoPixels
+#define PIXEL_COUNT 801  // Number of NeoPixels
 #define PIXEL2_COUNT 1  // Number of NeoPixels
-#define PIXEL_CURRENT_DIFF 5
+#define PIXEL_CURRENT_DIFF1 10
+#define PIXEL_CURRENT_DIFF2 5
+#define PIXEL_CURRENT_DIFF3 3
 #define CURRENT_READ_DELAY 10
+#define CURRENT_REREAD_DELAY 3
+
+#define NUM_OFF_READING 5
+#define NUM_SINGLE_READING 3
 
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
@@ -130,6 +136,8 @@ void loop() {
     case 1:
         setColorWith50();
         mode_str ="Every 50";
+        //setFirstToWhite();
+        //mode_str ="1st White";
       break;
     case 2:
       set_color(strip.Color(255,0,0));// Red
@@ -192,12 +200,28 @@ void countPixels()
 #endif
   delay(50);
 
-  float off_current = ina219.getCurrent_mA(); //55ma on a 50pix bullet string all off
+  float off_current_sum {0.0F};
+  float off_current {0.0F};
+  //float off_current = ina219.getCurrent_mA(); //55ma on a 50pix bullet string all off
 
-  int count = findTransitionPoint(strip.numPixels(),off_current);
-  if(-1 != count)
-  {
-    pixel_count = count;
+  for (int i = 0; i < NUM_OFF_READING; i++) {
+    off_current_sum += ina219.getCurrent_mA();
+    delay(CURRENT_REREAD_DELAY); // Small delay between readings for stability
+  }
+
+  // Calculate the average
+  off_current = off_current_sum / (float)NUM_OFF_READING;
+
+  float current_diffs[3] = 
+  { PIXEL_CURRENT_DIFF1, PIXEL_CURRENT_DIFF2, PIXEL_CURRENT_DIFF3};
+
+  for(auto const& cur_diff : current_diffs ) {
+    int count = findTransitionPoint(strip.numPixels(),off_current, cur_diff);
+    if(0 < count)
+    {
+      pixel_count = count;
+      break;
+    }
   }
 }
 
@@ -216,18 +240,40 @@ void TurnOnLED(int ledidx)
   yield();
 }
 
-bool IsLEDOn(int ledidx, float off_current ) 
+bool IsLEDOn(int ledidx, float off_current , float current_diff) 
+{
+  TurnOnLED(ledidx);
+
+  float on_current_sum {0.0F};
+  float on_current {0.0F};
+  //float off_current = ina219.getCurrent_mA(); //55ma on a 50pix bullet string all off
+
+  for (int i = 0; i < NUM_SINGLE_READING; i++) {
+    on_current_sum += ina219.getCurrent_mA();
+    delay(CURRENT_REREAD_DELAY); // Small delay between readings for stability
+  }
+
+  // Calculate the average
+  on_current = on_current_sum / (float)NUM_SINGLE_READING;
+  //float on_current = ina219.getCurrent_mA(); //100ma on on 50pix bullet string with one on
+  if((on_current - off_current) < current_diff) {
+    return false;
+  }
+  return true;
+}
+
+bool IsLEDOn2(int ledidx, float off_current , float current_diff) 
 {
   TurnOnLED(ledidx);
   float on_current = ina219.getCurrent_mA(); //100ma on on 50pix bullet string with one on
-  if((on_current - off_current) < PIXEL_CURRENT_DIFF) {
-          return false;
+  if((on_current - off_current) < current_diff) {
+    return false;
   }
   return true;
 }
 
 //use binary serach to find Transition Point from on to off
-int findTransitionPoint(int n, float off_current) 
+int findTransitionPoint(int n, float off_current, float current_diff) 
 { 
     // Initialise lower and upper bounds 
     int lb = 0;
@@ -238,18 +284,18 @@ int findTransitionPoint(int n, float off_current)
     { 
         // Find mid 
         int mid = (lb + ub) / 2; 
-        update_power_display(mid, "Counting");
+        update_power_display(mid, "Counting " + String(current_diff));
         display.display();
 
         // update lower_bound to mid if mid is on
-        if (IsLEDOn(mid, off_current)) {
+        if (IsLEDOn(mid, off_current, current_diff)) {
             lb = mid + 1; 
         }
         else {// If mid is off 
             // Check if it is the left most 1 
             // Return mid, if yes 
             if (mid == 0 || (mid > 0 &&  
-              IsLEDOn(mid - 1, off_current))) {
+              IsLEDOn(mid - 1, off_current, current_diff))) {
                 return mid; 
             }
 
@@ -372,7 +418,6 @@ void setColorWith50() {
     for(int i=0; i<strip.numPixels(); i++) {
       if ((i +1) % 50 == 0 && i != 0) { // Add i != 0 to avoid triggering on the first iteration (i=0)
           strip.setPixelColor(i, strip.Color(255,255,255));
-
         } else {
           strip.setPixelColor(i, strip.Color(255,0,0));
         }
@@ -385,6 +430,20 @@ void setColorWith50() {
         } else {
           strip2.setPixelColor(i, strip2.Color(255,0,0));
         }
+    }
+    strip2.show();
+#endif
+}
+
+void setFirstToWhite() {
+    for(int i=0; i<strip.numPixels(); i++) {
+      strip.setPixelColor(i, strip.Color(0,0,0));
+    }
+    strip.setPixelColor(0, strip.Color(255,255,255));
+    strip.show();
+#if defined(ON_BOARD_LED)
+    for(uint16_t i=0; i< strip2.numPixels(); i++) {
+      strip2.setPixelColor(i, strip2.Color(0,0,0));
     }
     strip2.show();
 #endif
