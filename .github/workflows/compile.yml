@@ -6,8 +6,13 @@ on:
   - pull_request
 
 jobs:
-  compile-sketch:
+  compile-rp2040-sketch:
     runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        version: [VERSION1, VERSION2, VERSION3]
 
     steps:
       # This step makes the contents of the repository available to the workflow
@@ -15,7 +20,7 @@ jobs:
         uses: actions/checkout@v4
 
       # For more information: https://github.com/arduino/compile-sketches#readme
-      - name: Compile sketch
+      - name: Compile sketch (${{ matrix.version }})
         uses: arduino/compile-sketches@v1
         with:
           platforms: |
@@ -24,14 +29,10 @@ jobs:
             # Overwrite the Boards Manager installation with the development version of the platform.
             - source-url: https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
               name: rp2040:rp2040
-          # The default is to compile for the Arduino Uno board. If you want to compile for other boards, use the `fqbn` input.
+          # Only the RP2040 sketch - the ATtiny1614 sketch is built by the other job below.
           sketch-paths: |
-            # Configure the action to search all folders under the root of the repository for sketches and compile them.
-            # This is formatted as a YAML list, which makes it possible to have multiple sketch paths if needed.
-            - ./Firmware
+            - ./Firmware/RP2040_Count
           libraries: |
-            # The "blink" sketch being compiled in this demo doesn't use any libraries, so just use an empty list
-            #- name: Adafruit_GFX
              - source-url: https://github.com/adafruit/Adafruit-GFX-Library.git
              - source-url: https://github.com/adafruit/Adafruit_SSD1306.git
              - source-url: https://github.com/adafruit/Adafruit_INA219.git
@@ -40,13 +41,54 @@ jobs:
              - source-url: https://github.com/mathertel/OneButton.git
           fqbn: "rp2040:rp2040:seeed_xiao_rp2040"
           #fqbn: "rp2040:rp2040:rpipico"
+          # VERSION1/VERSION2/VERSION3 select the pin mapping for a given PCB
+          # revision (see the #define block at the top of RP2040_Count.ino).
+          # Passing it as a build flag lets CI cover all three revisions
+          # without editing the sketch.
+          cli-compile-flags: |
+            - --export-binaries
+            - --build-property
+            - compiler.cpp.extra_flags=-D${{ matrix.version }}
+
+      - name: Upload Export Files as Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: uf2-${{ matrix.version }}
+          path: ./Firmware/RP2040_Count/**/*.uf2
+          if-no-files-found: error
+          retention-days: 60
+
+  compile-attiny1614-sketch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compile sketch
+        uses: arduino/compile-sketches@v1
+        with:
+          platforms: |
+            # megaTinyCore boards package (ATtiny1614 target).
+            - source-url: http://drazzy.com/package_drazzy.com_index.json
+              name: megaTinyCore:megaavr
+          sketch-paths: |
+            - ./Firmware/ATtiny1614_Count
+          libraries: |
+             # FAB_LED isn't on the Library Manager index, install from source.
+             - source-url: https://github.com/sonyhome/FAB_LED.git
+             - name: SSD1306Ascii
+             - name: OneButton
+          # No bootloader: this chip is flashed via UPDI, not USB/uf2, so use
+          # the plain (non-Optiboot) board definition, chip=1614.
+          fqbn: "megaTinyCore:megaavr:atxy4:chip=1614"
           cli-compile-flags: |
             - --export-binaries
 
       - name: Upload Export Files as Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: uf2
-          path: ./Firmware/RP2040_Count/*.uf2
+          name: hex-attiny1614
+          path: ./Firmware/ATtiny1614_Count/**/*.hex
           if-no-files-found: error
           retention-days: 60

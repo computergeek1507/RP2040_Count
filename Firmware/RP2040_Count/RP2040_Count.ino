@@ -4,27 +4,10 @@
 #include <Adafruit_INA219.h>
 #include <Adafruit_NeoPixel.h>
 #include <OneButton.h>
-
-//#define  VERSION1
-#define  VERSION2
-//#define  ON_BOARD_LED
-
-#if defined(VERSION1)
-#define PIXEL_PIN    14  // Digital IO pin connected to the NeoPixels.
-#define BUTTON_A_PIN  13
-#define I2C_SDA_PIN  10
-#define I2C_SCL_PIN  11
-#define WIRE_DEVICE Wire1
-#define PIXEL2_PIN    16
-#endif
+#include "BoardConfig.h"
+#include "FseqPlayer.h"
 
 #if defined(VERSION2)
-#define PIXEL_PIN    D6  // Digital IO pin connected to the NeoPixels.
-#define BUTTON_A_PIN  D7
-#define I2C_SDA_PIN  PIN_WIRE0_SDA
-#define I2C_SCL_PIN  PIN_WIRE0_SCL
-#define WIRE_DEVICE Wire
-#define PIXEL2_PIN    12
 int PIXEL2_Power = 11;
 #endif
 
@@ -59,9 +42,21 @@ OneButton button = OneButton(
   true         // Enable internal pull-up resistor
 );
 
+#if defined(HAS_SD_CARD)
+OneButton button2 = OneButton(
+  BUTTON_B_PIN,  // Input pin for the FSEQ menu button
+  true,        // Button is active LOW
+  true         // Enable internal pull-up resistor
+);
+
+enum class AppState { NORMAL, FSEQ_MENU, FSEQ_PLAYING };
+AppState appState = AppState::NORMAL;
+int fseqMenuIndex = 0;
+#endif
+
 uint32_t pixel_count = 0;
 uint16_t color = 0;
-volatile int     mode     = 0; 
+volatile int     mode     = 0;
 
 void setup() {
   Serial.begin(115200);
@@ -114,12 +109,48 @@ void setup() {
   button.attachLongPressStart(LongPress, &button);
   button.setDebounceMs(20);
   button.setLongPressIntervalMs(800);
+
+#if defined(HAS_SD_CARD)
+  button2.attachPress(Button2ShortPress, &button2);
+  button2.attachLongPressStart(Button2LongPress, &button2);
+  button2.setDebounceMs(20);
+  button2.setLongPressIntervalMs(800);
+
+  Serial.println("SD card init");
+  fseqInit(SD_CS_PIN, strip, display, PIXEL_COUNT);
+  fseqScanFiles();
+  Serial.print("FSEQ files found: ");
+  Serial.println(fseqFileCount());
+#endif
+
   delay(100);
   countPixels();
 }
 
 void loop() {
   button.tick();
+
+#if defined(HAS_SD_CARD)
+  button2.tick();
+
+  if (appState == AppState::FSEQ_MENU) {
+    fseqDrawMenu(fseqMenuIndex);
+    delay(10);
+    yield();
+    return;
+  }
+
+  if (appState == AppState::FSEQ_PLAYING) {
+    if (!fseqUpdate()) {
+      fseqStop();
+      appState = AppState::FSEQ_MENU;
+    } else {
+      fseqDrawPlaying(fseqMenuIndex);
+    }
+    yield();
+    return;
+  }
+#endif
 
   //loop color for ranbow
   color++;
@@ -173,17 +204,67 @@ void loop() {
 
 void ShortPress(void *oneButton)
 {
+#if defined(HAS_SD_CARD)
+  // Button A cancels out of the FSEQ menu/playback back to normal mode.
+  if (appState != AppState::NORMAL) {
+    if (appState == AppState::FSEQ_PLAYING) {
+      fseqStop();
+    }
+    appState = AppState::NORMAL;
+    return;
+  }
+#endif
   // Advance to next test mode, wrap around after 6
-  if(++mode > 7) { 
+  if(++mode > 7) {
     mode = 0;
-  }      
+  }
 }
 
 // this function will be called when the button is released.
 void LongPress(void *oneButton)
 {
+#if defined(HAS_SD_CARD)
+  if (appState != AppState::NORMAL) {
+    return;
+  }
+#endif
   countPixels();
 }
+
+#if defined(HAS_SD_CARD)
+// Button B: browse and play FSEQ files from the SD card.
+void Button2ShortPress(void *oneButton)
+{
+  switch (appState) {
+    case AppState::NORMAL:
+      fseqScanFiles();
+      if (fseqFileCount() > 0) {
+        fseqMenuIndex = 0;
+        appState = AppState::FSEQ_MENU;
+      }
+      break;
+    case AppState::FSEQ_MENU:
+      if (fseqFileCount() > 0) {
+        fseqMenuIndex = (fseqMenuIndex + 1) % fseqFileCount();
+      }
+      break;
+    case AppState::FSEQ_PLAYING:
+      fseqStop();
+      appState = AppState::FSEQ_MENU;
+      break;
+  }
+}
+
+// this function will be called when the button is released.
+void Button2LongPress(void *oneButton)
+{
+  if (appState == AppState::FSEQ_MENU && fseqFileCount() > 0) {
+    if (fseqStart(fseqMenuIndex)) {
+      appState = AppState::FSEQ_PLAYING;
+    }
+  }
+}
+#endif
 
 void countPixels()
 {
