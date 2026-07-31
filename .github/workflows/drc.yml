@@ -16,7 +16,7 @@ jobs:
   drc-files:
     name: DRC Everything
     runs-on: ubuntu-latest
-    container: ghcr.io/inti-cmnb/kicad8_auto:1.6.5
+    container: ghcr.io/inti-cmnb/kicad9_auto:1.9.0
       
     steps:
 
@@ -42,7 +42,7 @@ jobs:
    
 
     - name: Upload Export Files as Artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: output
         path: |
