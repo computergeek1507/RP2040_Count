@@ -8,7 +8,7 @@
 	)
 	(paper "A4")
 	(title_block
-		(title "RP2040 Count")
+		(title "SB Pixel Count")
 		(date "2024-02-11")
 		(rev "v2")
 	)

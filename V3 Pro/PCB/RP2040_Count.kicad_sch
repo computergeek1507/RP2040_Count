@@ -5,7 +5,7 @@
 	(uuid "e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3")
 	(paper "A4")
 	(title_block
-		(title "RP2040 Count Pro")
+		(title "SB Pixel Count Pro")
 		(date "2025-10-06")
 		(rev "v1")
 	)
