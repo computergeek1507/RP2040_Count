@@ -5,3 +5,6 @@ build/
 *.hex
 *.elf
 *.eep
+
+# KiCad auto-backup files
+*.bak

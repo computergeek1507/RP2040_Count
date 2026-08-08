@@ -1,4 +1,4 @@
-26820571401161810
+26811670306046140
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -97139,13 +97139,6 @@ RP2040-Tiny_Scott
 46
 23
 Scotts
-SW_PUSH_6mm
-Generic 6mm SW tactile push button
-tact sw push 6mm
-0
-4
-4
-Scotts
 chewi_10
 
 
@@ -99364,13 +99357,6 @@ Logo WEEE
 0
 0
 0
-TF-SMD_TF
-TF-SMD_TF-123-ARP9H15
-TF-SMD_TF-123-ARP9H15 footprint
-TF-SMD_TF-123-ARP9H15 footprint C2982548
-0
-13
-13
 TerminalBlock
 TerminalBlock_Altech_AK300-2_P5.00mm
 Altech AK300 terminal block, pitch 5.0mm, 45 degree angled, see http://www.mouser.com/ds/2/16/PCBMETRC-24178.pdf
@@ -106315,24 +106301,3 @@ Varistor VF
 0
 2
 2
-XIAO_PCB
-MOUDLE14P-2.54-21X17.8MM
-
-
-0
-14
-14
-XIAO_PCB
-MOUDLE14P-2.54-21X17.8MM_scott
-
-
-0
-28
-14
-XIAO_PCB
-MOUDLE14P-SMD-2.54-21X17.8MM
-
-
-0
-14
-14

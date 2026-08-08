@@ -8,6 +8,7 @@
 		(title "SB Pixel Count Pro")
 		(date "2025-10-06")
 		(rev "v1")
+		(company "S&B Designs LLC")
 	)
 	(lib_symbols
 		(symbol "74xGxx:74AHCT1G125"
