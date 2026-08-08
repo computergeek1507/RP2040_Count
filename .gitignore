@@ -1,0 +1,7 @@
+# Arduino/arduino-cli build output
+build/
+*.lst
+*.map
+*.hex
+*.elf
+*.eep
