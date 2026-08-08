@@ -3323,7 +3323,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "#PWR08")
 					(unit 1)
@@ -3434,7 +3434,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "C5")
 					(unit 1)
@@ -3530,7 +3530,7 @@
 			(uuid "bcf31315-1d9c-4fbc-af2a-67c50d8667dc")
 		)
 		(instances
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "R3")
 					(unit 1)
@@ -3595,7 +3595,7 @@
 			(uuid "c1f062d8-fd39-41b9-bdd3-fc9997e31c0b")
 		)
 		(instances
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "#PWR024")
 					(unit 1)
@@ -3726,7 +3726,7 @@
 			(uuid "9f2d61df-be94-4b34-b1b3-97f094f54ea9")
 		)
 		(instances
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "U5")
 					(unit 1)
@@ -3797,7 +3797,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "#PWR023")
 					(unit 1)
@@ -3902,7 +3902,7 @@
 			(uuid "1f695e14-6a4b-4650-9172-d3c63128a002")
 		)
 		(instances
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "C6")
 					(unit 1)
@@ -3973,7 +3973,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "#PWR010")
 					(unit 1)
@@ -4038,7 +4038,7 @@
 			(uuid "cf6d2e90-089b-46ad-a6e8-0142b84ac26b")
 		)
 		(instances
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "#PWR013")
 					(unit 1)
@@ -4109,7 +4109,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "#PWR026")
 					(unit 1)
@@ -4181,7 +4181,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "#PWR04")
 					(unit 1)
@@ -4299,7 +4299,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "U1")
 					(unit 1)
@@ -4395,7 +4395,7 @@
 			(uuid "979ec18b-48e7-4376-9459-505842e24622")
 		)
 		(instances
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "R4")
 					(unit 1)
@@ -4466,7 +4466,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "#PWR01")
 					(unit 1)
@@ -4537,7 +4537,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "#PWR017")
 					(unit 1)
@@ -4644,7 +4644,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "J3")
 					(unit 1)
@@ -4715,7 +4715,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "#PWR015")
 					(unit 1)
@@ -4786,7 +4786,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "#PWR011")
 					(unit 1)
@@ -4886,7 +4886,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "TB1")
 					(unit 1)
@@ -4951,7 +4951,7 @@
 			(uuid "ab9c0fa3-53c1-43fc-89af-20f21ef4f0f2")
 		)
 		(instances
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "#PWR027")
 					(unit 1)
@@ -5052,7 +5052,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "SW1")
 					(unit 1)
@@ -5123,7 +5123,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "#PWR06")
 					(unit 1)
@@ -5195,7 +5195,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "#PWR012")
 					(unit 1)
@@ -5260,7 +5260,7 @@
 			(uuid "53cf3bec-6982-4a99-a464-51230e35bbbb")
 		)
 		(instances
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "#PWR025")
 					(unit 1)
@@ -5325,7 +5325,7 @@
 			(uuid "6ceffb1e-d16e-49c7-ad62-eb08587670fd")
 		)
 		(instances
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "#PWR07")
 					(unit 1)
@@ -5396,7 +5396,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "#PWR016")
 					(unit 1)
@@ -5467,7 +5467,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "#PWR09")
 					(unit 1)
@@ -5538,7 +5538,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "#PWR021")
 					(unit 1)
@@ -5650,7 +5650,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "U3")
 					(unit 1)
@@ -5759,7 +5759,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "R1")
 					(unit 1)
@@ -5830,7 +5830,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "#PWR03")
 					(unit 1)
@@ -5941,7 +5941,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "C1")
 					(unit 1)
@@ -6072,7 +6072,7 @@
 			(uuid "eb999216-b4ad-470b-ade0-4fc5e44cebbb")
 		)
 		(instances
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "U4")
 					(unit 1)
@@ -6183,7 +6183,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "C3")
 					(unit 1)
@@ -6279,7 +6279,7 @@
 			(uuid "8c1f064e-1dcf-4319-b539-fe19d8281d99")
 		)
 		(instances
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "R2")
 					(unit 1)
@@ -6350,7 +6350,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "#PWR014")
 					(unit 1)
@@ -6421,7 +6421,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "#PWR022")
 					(unit 1)
@@ -6492,7 +6492,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "#PWR02")
 					(unit 1)
@@ -6563,7 +6563,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "#PWR05")
 					(unit 1)
@@ -6669,7 +6669,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "J2")
 					(unit 1)
@@ -6780,7 +6780,7 @@
 					(unit 1)
 				)
 			)
-			(project "RP2040_Count"
+			(project "SB_Pixel_Count"
 				(path "/e1ffaa09-060f-4afb-ad33-db2ddd3f4dd3"
 					(reference "C4")
 					(unit 1)

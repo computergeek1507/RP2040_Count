@@ -31,7 +31,7 @@ jobs:
               name: rp2040:rp2040
           # Only the RP2040 sketch - the ATtiny1614 sketch is built by the other job below.
           sketch-paths: |
-            - ./Firmware/RP2040_Count
+            - ./Firmware/SB_Pixel_Count
           libraries: |
              - source-url: https://github.com/adafruit/Adafruit-GFX-Library.git
              - source-url: https://github.com/adafruit/Adafruit_SSD1306.git
@@ -42,7 +42,7 @@ jobs:
           fqbn: "rp2040:rp2040:seeed_xiao_rp2040"
           #fqbn: "rp2040:rp2040:rpipico"
           # VERSION1/VERSION2/VERSION3 select the pin mapping for a given PCB
-          # revision (see the #define block at the top of RP2040_Count.ino).
+          # revision (see the #define block at the top of SB_Pixel_Count.ino).
           # Passing it as a build flag lets CI cover all three revisions
           # without editing the sketch.
           cli-compile-flags: |
@@ -54,7 +54,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: uf2-${{ matrix.version }}
-          path: ./Firmware/RP2040_Count/**/*.uf2
+          path: ./Firmware/SB_Pixel_Count/**/*.uf2
           if-no-files-found: error
           retention-days: 60
 

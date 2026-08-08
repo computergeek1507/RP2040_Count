@@ -1,4 +1,4 @@
-// ATtiny1614 port of RP2040_Count.
+// ATtiny1614 port of SB_Pixel_Count.
 //
 // Board (Boards Manager): megaTinyCore "ATtiny3224/1624/1614/1604/824/814/804/
 // 424/414/404/214/204", chip=1614, no bootloader (UPDI programmer required).
@@ -15,14 +15,14 @@
 //   PB1 (digital 6) -> SDA (hardware TWI0, default pins)
 //   PB0 (digital 7) -> SCL (hardware TWI0, default pins)
 //   PA0 (UPDI)      -> reserved for programming, not used as GPIO
-// INA219 shunt is 0.1 ohm (matches RP2040_Count.kicad_sch, R "0.1 OHM 2W").
+// INA219 shunt is 0.1 ohm (matches SB_Pixel_Count.kicad_sch, R "0.1 OHM 2W").
 //
 // Power/level-shifting (for whoever lays out the PCB): the SSD1306 needs a
 // 3V supply, and I2C is open-drain, so ATtiny1614 + INA219 + OLED should all
 // share a 3.3V rail rather than 5V (both chips are fine at 3.3V). That
 // leaves the NeoPixel data line under-driven: WS2812B wants a data-high
 // threshold near 0.7*Vdd (~3.5V on a 5V-powered strip), which a 3.3V GPIO
-// won't reliably hit over a run this long (801 pixels). RP2040_Count.kicad_sch
+// won't reliably hit over a run this long (801 pixels). SB_Pixel_Count.kicad_sch
 // already solves this on the RP2040 board (same 3.3V-logic situation) with a
 // 74AHCT1G125 level shifter on the pixel line - reuse that pattern here:
 // 3.3V for MCU/I2C/OLED, level-shift just the PA4 pixel output up to 5V.
@@ -50,7 +50,7 @@
 #define INA219_ADDRESS 0x40
 #define INA219_REG_SHUNTVOLTAGE 0x01
 #define INA219_REG_BUSVOLTAGE   0x02
-#define INA219_SHUNT_OHMS 0.1f  // matches R "0.1 OHM 2W" on RP2040_Count PCB
+#define INA219_SHUNT_OHMS 0.1f  // matches R "0.1 OHM 2W" on SB_Pixel_Count PCB
 
 ws2812b<A, 4> strip;  // NeoPixel data on PA4
 SSD1306AsciiWire oled;

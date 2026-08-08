@@ -1,6 +1,6 @@
 {
   "board": {
-    "active_layer": 0,
+    "active_layer": 33,
     "active_layer_preset": "",
     "auto_track_width": true,
     "hidden_netclasses": [],
@@ -19,7 +19,7 @@
       "footprints": true,
       "graphics": true,
       "keepouts": true,
-      "lockedItems": false,
+      "lockedItems": true,
       "otherItems": true,
       "pads": true,
       "text": true,
@@ -64,8 +64,8 @@
       39,
       40
     ],
-    "visible_layers": "07fffde_80000001",
-    "zone_display_mode": 0
+    "visible_layers": "07ffffe_00000000",
+    "zone_display_mode": 1
   },
   "git": {
     "repo_password": "",
@@ -74,7 +74,7 @@
     "ssh_key": ""
   },
   "meta": {
-    "filename": "RP2040_Count.kicad_prl",
+    "filename": "SB_Pixel_Count.kicad_prl",
     "version": 3
   },
   "project": {

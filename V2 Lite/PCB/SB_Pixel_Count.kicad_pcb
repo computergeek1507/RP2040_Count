@@ -179,7 +179,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/6a04c023-6691-47cd-81e7-c62ad0939343")
 		(sheetname "/")
-		(sheetfile "RP2040_Count.kicad_sch")
+		(sheetfile "SB_Pixel_Count.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.254724 -0.5225)
@@ -362,7 +362,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/d2e9df1d-eada-4352-aaf3-9742440c901f")
 		(sheetname "/")
-		(sheetfile "RP2040_Count.kicad_sch")
+		(sheetfile "SB_Pixel_Count.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -2.177064 -1.71)
@@ -1188,7 +1188,7 @@
 		(property ki_fp_filters "SOT?23?5*")
 		(path "/d9ede32b-8417-4a1a-bb47-eb0138443cd4")
 		(sheetname "/")
-		(sheetfile "RP2040_Count.kicad_sch")
+		(sheetfile "SB_Pixel_Count.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.91 -1.56)
@@ -1612,7 +1612,7 @@
 		)
 		(path "/58fabf82-a13d-49a6-9778-6328a4da65a6")
 		(sheetname "/")
-		(sheetfile "RP2040_Count.kicad_sch")
+		(sheetfile "SB_Pixel_Count.kicad_sch")
 		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -1.5 2.25)
@@ -2112,7 +2112,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/0fc30a14-f55e-4771-9ab5-b01bcef49095")
 		(sheetname "/")
-		(sheetfile "RP2040_Count.kicad_sch")
+		(sheetfile "SB_Pixel_Count.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.254724 0.5225)
@@ -2307,7 +2307,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/161c5273-ec45-4511-b7b2-92a44671a5d7")
 		(sheetname "/")
-		(sheetfile "RP2040_Count.kicad_sch")
+		(sheetfile "SB_Pixel_Count.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.146267 -0.51)
@@ -2500,7 +2500,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/c502dc12-2190-4178-8675-550c9349e2b5")
 		(sheetname "/")
-		(sheetfile "RP2040_Count.kicad_sch")
+		(sheetfile "SB_Pixel_Count.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.146267 -0.51)
@@ -2693,7 +2693,7 @@
 		(property ki_fp_filters "CP_*")
 		(path "/270ed7fa-fa12-4406-99bc-65023ce8faba")
 		(sheetname "/")
-		(sheetfile "RP2040_Count.kicad_sch")
+		(sheetfile "SB_Pixel_Count.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.261252 0.735)
@@ -2846,7 +2846,7 @@
 		(property ki_fp_filters "SOIC*3.9x8.7mm*P1.27mm*")
 		(path "/f0487341-5906-422f-a6af-4d6453a56862")
 		(sheetname "/")
-		(sheetfile "RP2040_Count.kicad_sch")
+		(sheetfile "SB_Pixel_Count.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -2.06 4.435)
@@ -3321,7 +3321,7 @@
 		(property ki_fp_filters "SOT* SG-*")
 		(path "/45845332-be3a-446a-9839-ce3c01aba490")
 		(sheetname "/")
-		(sheetfile "RP2040_Count.kicad_sch")
+		(sheetfile "SB_Pixel_Count.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.8 1.6)
@@ -3591,7 +3591,7 @@
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/e3c01b9e-9d79-4965-b790-6a2bdc458f69")
 		(sheetname "/")
-		(sheetfile "RP2040_Count.kicad_sch")
+		(sheetfile "SB_Pixel_Count.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -1.485 0.735)
@@ -3849,7 +3849,7 @@
 		(property ki_fp_filters "SOIC*3.9x4.9mm*P1.27mm*")
 		(path "/cd74324d-248f-4bdd-9c0a-8a2e58fc34ed")
 		(sheetname "/")
-		(sheetfile "RP2040_Count.kicad_sch")
+		(sheetfile "SB_Pixel_Count.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 2.06 -2.56)
@@ -4264,7 +4264,7 @@
 		(property ki_fp_filters "CP_*")
 		(path "/fbdbef44-d910-41b7-bce4-7aa89a3cfd5d")
 		(sheetname "/")
-		(sheetfile "RP2040_Count.kicad_sch")
+		(sheetfile "SB_Pixel_Count.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.261252 -0.735)
@@ -4455,7 +4455,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/b09a1f10-eb41-4e75-ab96-41500a596c79")
 		(sheetname "/")
-		(sheetfile "RP2040_Count.kicad_sch")
+		(sheetfile "SB_Pixel_Count.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.254724 -0.5225)
@@ -4646,7 +4646,7 @@
 		(property ki_fp_filters "SOT?223*TabPin2*")
 		(path "/a1e7ef19-8dc6-42b1-b5c5-7c4485cf73f0")
 		(sheetname "/")
-		(sheetfile "RP2040_Count.kicad_sch")
+		(sheetfile "SB_Pixel_Count.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -1.85 -3.41)
@@ -4961,7 +4961,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/0aa80d15-eef9-4aae-8776-1c9141896a87")
 		(sheetname "/")
-		(sheetfile "RP2040_Count.kicad_sch")
+		(sheetfile "SB_Pixel_Count.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.146267 0.51)
@@ -5152,7 +5152,7 @@
 		(property ki_fp_filters "CP_*")
 		(path "/d027bc2a-4285-4b6e-9373-f5350471b64f")
 		(sheetname "/")
-		(sheetfile "RP2040_Count.kicad_sch")
+		(sheetfile "SB_Pixel_Count.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.261252 -0.735)
@@ -5334,7 +5334,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/487fdda4-e5cf-4388-a24f-49df98a1ed2d")
 		(sheetname "/")
-		(sheetfile "RP2040_Count.kicad_sch")
+		(sheetfile "SB_Pixel_Count.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.254724 0.5225)
@@ -5475,7 +5475,7 @@
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/7207397c-da49-4ada-acfd-b1f96230a575")
 		(sheetname "/")
-		(sheetfile "RP2040_Count.kicad_sch")
+		(sheetfile "SB_Pixel_Count.kicad_sch")
 		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -1.38 -1.38)
@@ -5750,7 +5750,7 @@
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/f6d15d1b-6992-43f0-983d-7889b43efb7c")
 		(sheetname "/")
-		(sheetfile "RP2040_Count.kicad_sch")
+		(sheetfile "SB_Pixel_Count.kicad_sch")
 		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -2.71 3.11)
@@ -6484,7 +6484,7 @@
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/511f500f-a7e7-4b8f-851b-c7eed14ef9c3")
 		(sheetname "/")
-		(sheetfile "RP2040_Count.kicad_sch")
+		(sheetfile "SB_Pixel_Count.kicad_sch")
 		(attr smd exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -12.5 1.5)
@@ -6859,7 +6859,7 @@
 		)
 		(path "/672ccb28-a185-4cce-b244-6e326caf4958")
 		(sheetname "/")
-		(sheetfile "RP2040_Count.kicad_sch")
+		(sheetfile "SB_Pixel_Count.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 5.5 -5.5)

@@ -33,19 +33,19 @@ jobs:
       with:
         lfs: true
         
-    - name: DRC RP2040_Count Files
+    - name: DRC SB_Pixel_Count Files
       run: |
         cd PCB
-        rm -rf RP2040_Count/
-        kibot -c ../.github/workflows/scripts/kibot/drc.config.kibot.yaml -e RP2040_Count.kicad_sch -b RP2040_Count.kicad_pcb -d RP2040_Count
+        rm -rf SB_Pixel_Count/
+        kibot -c ../.github/workflows/scripts/kibot/drc.config.kibot.yaml -e SB_Pixel_Count.kicad_sch -b SB_Pixel_Count.kicad_pcb -d SB_Pixel_Count
 
-   
+
 
     - name: Upload Export Files as Artifacts
       uses: actions/upload-artifact@v4
       with:
         name: output
         path: |
-          PCB/RP2040_Count/**
+          PCB/SB_Pixel_Count/**
         if-no-files-found: error
         retention-days: 60
