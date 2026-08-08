@@ -174,21 +174,27 @@ void update_power_display(uint16_t pixelNum, const char* mode_str) {
   float current_mA = ina219_getCurrent_mA();
   float loadvoltage = busvoltage + (shuntvoltage / 1000.0f);
 
-  oled.clear();
+  // No oled.clear() here: blanking the whole 1024-byte GDDRAM before
+  // redrawing text is what caused the visible flicker. Overwrite each
+  // field in place and clearToEOL() just the leftover tail instead.
   oled.setCursor(0, 0);
   oled.print("Pixels:");
   oled.print(pixelNum);
+  oled.clearToEOL();
 
   oled.setCursor(0, 2);
   oled.print("V:");
   oled.print(loadvoltage, 2);
+  oled.clearToEOL();
 
   oled.setCursor(0, 4);
   oled.print("A:");
   oled.print(current_mA / 1000.0f, 3);
+  oled.clearToEOL();
 
   oled.setCursor(0, 6);
   oled.print(mode_str);
+  oled.clearToEOL();
 }
 
 // ---- Pixel counting (binary search on current draw), ported 1:1 ----
@@ -269,6 +275,9 @@ void setup() {
   Wire.setClock(400000L);
 
   oled.begin(&Adafruit128x64, SCREEN_ADDRESS);
+  // Adafruit-style modules power up in remap mode; normal mode rotates
+  // the display 180 degrees. Flip back to false if this ends up upside down.
+  oled.displayRemap(true);
   oled.setFont(System5x7);
   oled.clear();
 
