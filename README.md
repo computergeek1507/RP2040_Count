@@ -9,9 +9,9 @@ You may redistribute and modify this documentation under the terms of the CERN O
 
 # RP2040 Count
 
-RP2040 Pixel Counter is a 'pocket' Pixel Counter. It uses a Waveshare RP2040-Tiny Development Board.  All the design files are open source and available on github.
+RP2040 Pixel Counter is a 'pocket' Pixel Counter. The original (V1) board uses a Waveshare RP2040-Tiny Development Board.  All the design files are open source and available on github.
 
-To order PCBs upload the ["GERBER-RP2040_Count.zip"](https://github.com/computergeek1507/RP2040_Count/raw/main/PCB/jlcpcb/production_files/GERBER-RP2040_Count.zip) file in the "PCB\jlcpcb\production_files" folder to jlcpcb.com. Use the "BOM-RP2040_Count.csv" for the JLC Assembly BOM and "CPL-RP2040_Count.csv" as the footprint placement file.
+To order PCBs upload the ["GERBER-RP2040_Count.zip"](https://github.com/computergeek1507/RP2040_Count/raw/main/V1/PCB/jlcpcb/production_files/GERBER-RP2040_Count.zip) file in the "V1\PCB\jlcpcb\production_files" folder to jlcpcb.com. Use the "BOM-RP2040_Count.csv" for the JLC Assembly BOM and "CPL-RP2040_Count.csv" as the footprint placement file.
 
 ## Assembly
 
@@ -25,7 +25,7 @@ This repo tracks a few PCB/firmware revisions side by side. `Firmware/RP2040_Cou
 
 | Variant | Folder | MCU module | Firmware | Notes |
 | --- | --- | --- | --- | --- |
-| Original | `PCB/`, `Case/`, `Firmware/RP2040_Count/` | Waveshare RP2040-Tiny | `VERSION1` | The board described above; also see `RP2040-Zero/` for a variant PCB built around the Waveshare RP2040-Zero module. |
+| V1 (Original) | [`V1/`](https://github.com/computergeek1507/RP2040_Count/tree/main/V1) | Waveshare RP2040-Tiny | `VERSION1` | The board described above. |
 | V2 | [`V2/`](https://github.com/computergeek1507/RP2040_Count/tree/main/V2) | Seeed XIAO RP2040 | `VERSION2` (default) | Standard redesign around the XIAO RP2040 module - firmware updates over USB (drag-and-drop UF2), no external programmer needed. |
 | V2 Lite | [`V2 Lite/`](https://github.com/computergeek1507/RP2040_Count/tree/main/V2%20Lite) | ATtiny1614 (megaTinyCore) | [`Firmware/ATtiny1614_Count/`](https://github.com/computergeek1507/RP2040_Count/tree/main/Firmware/ATtiny1614_Count) | Cost-reduced BOM built around a bare ATtiny1614 instead of a RP2040 module; trades USB firmware updates for a UPDI programmer requirement. Uses FAB_LED/SSD1306Ascii instead of the Adafruit libraries to fit in 16KB flash / 2KB RAM. Shares the same case as V2 (`V2/Case/` and `V2 Lite/Case/` are the same design). |
 | V3 Pro | [`V3 Pro/`](https://github.com/computergeek1507/RP2040_Count/tree/main/V3%20Pro) | Seeed XIAO RP2040 | `VERSION3` | Adds a second button and a microSD card slot for playing back xLights FSEQ sequences on the strip (`Firmware/RP2040_Count/FseqPlayer.*`). |
@@ -34,12 +34,12 @@ Each variant folder that has its own `PCB/` directory also has its own `jlcpcb/p
 
 ## [Video of RP2040 Count](https://youtu.be/7ThN9TBFA-g)
 
-## [Part BOM](https://github.com/computergeek1507/RP2040_Count/raw/main/PCB/RP2040_Count_BOM.ods)
+## [Part BOM](https://github.com/computergeek1507/RP2040_Count/raw/main/V1/PCB/RP2040_Count_BOM.ods)
 
-## [Interactive BOM](https://computergeek1507.github.io/RP2040_Count/PCB/bom/ibom)
+## [Interactive BOM](https://computergeek1507.github.io/RP2040_Count/V1/PCB/bom/ibom)
 
 ![Image of RP2040 Count](https://github.com/computergeek1507/RP2040_Count/raw/main/PXL_20240302_150726946.jpg)
 
-![Image of RP2040 Count](https://github.com/computergeek1507/RP2040_Count/raw/main/Case/Case.bmp)
+![Image of RP2040 Count](https://github.com/computergeek1507/RP2040_Count/raw/main/V1/Case/Case.bmp)
 
-![Image of RP2040 Count](https://github.com/computergeek1507/RP2040_Count/raw/main/PCB/RP2040_Count.png)
+![Image of RP2040 Count](https://github.com/computergeek1507/RP2040_Count/raw/main/V1/PCB/RP2040_Count.png)
