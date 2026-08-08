@@ -6744,7 +6744,7 @@
 			(uuid "26d543a7-1174-4260-a58c-ee9a0a27e1d8")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/lib/OLED-128x64-0.96.step"
+		(model "${KIPRJMOD}/../../lib/OLED-128x64-0.96.step"
 			(offset
 				(xyz 34.3 -7.6 4)
 			)

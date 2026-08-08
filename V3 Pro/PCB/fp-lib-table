@@ -1,6 +1,6 @@
 (fp_lib_table
   (version 7)
-  (lib (name "Scotts")(type "KiCad")(uri "${KIPRJMOD}/lib/Scotts.pretty")(options "")(descr ""))
-  (lib (name "XIAO_PCB")(type "KiCad")(uri "${KIPRJMOD}/lib/XIAO_PCB.pretty")(options "")(descr ""))
-  (lib (name "TF-SMD_TF")(type "KiCad")(uri "${KIPRJMOD}/lib/TF-SMD_TF.pretty")(options "")(descr ""))
+  (lib (name "Scotts")(type "KiCad")(uri "${KIPRJMOD}/../../lib/Scotts.pretty")(options "")(descr ""))
+  (lib (name "XIAO_PCB")(type "KiCad")(uri "${KIPRJMOD}/../../lib/XIAO_PCB.pretty")(options "")(descr ""))
+  (lib (name "TF-SMD_TF")(type "KiCad")(uri "${KIPRJMOD}/../../lib/TF-SMD_TF.pretty")(options "")(descr ""))
 )

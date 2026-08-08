@@ -3700,7 +3700,7 @@
 			(uuid "32d43728-a313-4dc2-ab28-995c1f0e8b2e")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/lib/Seeed Studio XIAO RP2040 v26.step"
+		(model "${KIPRJMOD}/../../lib/Seeed Studio XIAO RP2040 v26.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -6400,7 +6400,7 @@
 			(uuid "26d543a7-1174-4260-a58c-ee9a0a27e1d8")
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/lib/OLED-128x64-0.96.step"
+		(model "${KIPRJMOD}/../../lib/OLED-128x64-0.96.step"
 			(offset
 				(xyz 34.3 -7.6 4)
 			)

@@ -1038,7 +1038,7 @@
 			(pintype "bidirectional+no_connect")
 			(uuid "2ea10849-816f-482f-9797-e75e4f62bddf")
 		)
-		(model "${KIPRJMOD}/lib/RP2040-Tiny V1.1.step"
+		(model "${KIPRJMOD}/../../lib/RP2040-Tiny V1.1.step"
 			(offset
 				(xyz 0 -23.5 1)
 			)
@@ -6509,7 +6509,7 @@
 			(pintype "passive")
 			(uuid "26d543a7-1174-4260-a58c-ee9a0a27e1d8")
 		)
-		(model "${KIPRJMOD}/lib/OLED-128x64-0.96.step"
+		(model "${KIPRJMOD}/../../lib/OLED-128x64-0.96.step"
 			(offset
 				(xyz 34.3 -7.6 4)
 			)
@@ -6830,7 +6830,7 @@
 			(pintype "passive")
 			(uuid "1d1c726e-5b7d-424f-846a-b7b378077355")
 		)
-		(model "${KIPRJMOD}/lib/Tactal Switch - SMD (6mmx 6mmx 6mm) - Marked.stp"
+		(model "${KIPRJMOD}/../../lib/Tactal Switch - SMD (6mmx 6mmx 6mm) - Marked.stp"
 			(offset
 				(xyz 0 0 0)
 			)

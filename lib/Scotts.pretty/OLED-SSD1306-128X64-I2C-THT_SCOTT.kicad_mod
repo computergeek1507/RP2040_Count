@@ -1,4 +1,4 @@
-(footprint "OLED-SSD1306-128X64-I2C-THT_SCOTT2"
+(footprint "OLED-SSD1306-128X64-I2C-THT_SCOTT"
 	(version 20240108)
 	(generator "pcbnew")
 	(generator_version "8.0")
@@ -16,7 +16,7 @@
 			)
 		)
 	)
-	(property "Value" "OLED-SSD1306-128X64-I2C-THT_SCOTT2"
+	(property "Value" "OLED-SSD1306-128X64-I2C-THT_SCOTT"
 		(at 0 -3.81 0)
 		(layer "F.Fab")
 		(uuid "4cb47fc2-d8e9-494e-afb4-e7fd4f9618ba")
@@ -275,6 +275,24 @@
 			)
 		)
 	)
+	(pad "" np_thru_hole circle
+		(at -10.5 0.5)
+		(size 2.5 2.5)
+		(drill 2.5)
+		(layers "F&B.Cu" "*.Mask")
+		(solder_mask_margin 1)
+		(clearance 1)
+		(uuid "2c176393-abbf-46eb-95bf-c08fcde837e2")
+	)
+	(pad "" np_thru_hole circle
+		(at 10.5 0.5)
+		(size 2.5 2.5)
+		(drill 2.5)
+		(layers "F&B.Cu" "*.Mask")
+		(solder_mask_margin 1)
+		(clearance 1)
+		(uuid "717ad49a-02b4-4a60-adae-0ebccd3ee5cd")
+	)
 	(pad "1" thru_hole rect
 		(at 3.8 0)
 		(size 1.7 2.5)
@@ -307,7 +325,7 @@
 		(remove_unused_layers no)
 		(uuid "9bb45170-4e74-4b2a-8a7f-379c402d7cd5")
 	)
-	(model "${KIPRJMOD}/../libraries/3D_Models/OLED-128x64-0.96.step"
+	(model "${KIPRJMOD}/../../lib/OLED-128x64-0.96.step"
 		(offset
 			(xyz 34.3 -7.6 4)
 		)
