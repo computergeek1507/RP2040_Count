@@ -8,3 +8,4 @@ build/
 
 # KiCad auto-backup files
 *.bak
+*-backups/
