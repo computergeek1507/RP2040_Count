@@ -1,4 +1,4 @@
-26811670306046140
+26815242773866923
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -97138,6 +97138,20 @@ RP2040-Tiny_Scott
 0
 46
 23
+Scotts
+SW_PUSH_6mm
+Generic 6mm SW tactile push button
+tact sw push 6mm
+0
+4
+4
+Scotts
+SW_Push_1P1T_NO_6x6mm_H9.5mm
+tactile push button, 6x6mm e.g. PTS645xx series, height=9.5mm
+tact sw push 6mm smd
+0
+4
+4
 Scotts
 chewi_10
 
