@@ -52,7 +52,15 @@
 #define INA219_REG_BUSVOLTAGE   0x02
 #define INA219_SHUNT_OHMS 0.1f  // matches R "0.1 OHM 2W" on SB_Pixel_Count PCB
 
-ws2812b<A, 4> strip;  // NeoPixel data on PA4
+// ws2812b<A,4> hardcodes GRB wire order internally (see FAB_TVAR_WS2812B in
+// FAB_LED.h) - the local pixel struct's field order (rgb vs grb) has no
+// effect on it, since sendPixels() always reads .r/.g/.b by name and
+// reorders per this class's fixed `colors` template param. This strip
+// actually wants RGB order, so instantiate the base template directly
+// with RGB in place of ws2812b's hardcoded GRB (everything else is an
+// exact copy of what ws2812b<A,4> expands to).
+avrBitbangLedStrip<WS2812B_1H_CY, WS2812B_1L_CY, WS2812B_0H_CY, WS2812B_0L_CY,
+                    WS2812B_MS_REFRESH, A, 4, A, 0, RGB, ONE_PORT_BITBANG> strip;  // NeoPixel data on PA4
 SSD1306AsciiWire oled;
 
 OneButton button = OneButton(
@@ -278,7 +286,10 @@ void setup() {
   // Adafruit-style modules power up in remap mode; normal mode rotates
   // the display 180 degrees. Flip back to false if this ends up upside down.
   oled.displayRemap(true);
-  oled.setFont(System5x7);
+  oled.setFont(fixed_bold10x15);  // 10x15px bold - bigger/bolder than System5x7.
+  // Rows stay at the same 0/2/4/6 cursor positions used below: each text
+  // line here is ~15-16px tall (2 of the display's 8px "page" rows), so
+  // four lines still fill the 128x64 screen edge-to-edge with no overlap.
   oled.clear();
 
   strip.clear(PIXEL_COUNT);
