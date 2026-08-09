@@ -96,7 +96,7 @@ float ina219_getCurrent_mA() {
 // ---- Streaming NeoPixel helpers (FAB_LED holds no strip buffer) ----
 
 void setAllColor(uint8_t r, uint8_t g, uint8_t b) {
-  grb pix[1];
+  rgb pix[1];
   pix[0].r = r;
   pix[0].g = g;
   pix[0].b = b;
@@ -109,7 +109,7 @@ void setAllColor(uint8_t r, uint8_t g, uint8_t b) {
 }
 
 void turnOnLED(uint16_t ledidx) {
-  grb pix[1];
+  rgb pix[1];
   const uint8_t oldSREG = SREG;
   cli();
   for (uint16_t i = 0; i < PIXEL_COUNT; i++) {
@@ -139,7 +139,7 @@ uint32_t wheel(uint8_t wheelPos) {
 }
 
 void rainbowCycle(uint16_t colorOffset) {
-  grb pix[1];
+  rgb pix[1];
   const uint8_t oldSREG = SREG;
   cli();
   for (uint16_t i = 0; i < PIXEL_COUNT; i++) {
@@ -153,7 +153,7 @@ void rainbowCycle(uint16_t colorOffset) {
 }
 
 void setColorWith50() {
-  grb pix[1];
+  rgb pix[1];
   const uint8_t oldSREG = SREG;
   cli();
   for (uint16_t i = 0; i < PIXEL_COUNT; i++) {
