@@ -1,4 +1,4 @@
-# Render-only KiBot config: schematic PDF + PCB top-view image.
+# Render-only KiBot config: schematic PDF + PCB top/bottom images.
 # Unlike drc.config.kibot.yaml, run_drc is disabled here so this always
 # produces output even when a board has open DRC violations.
 kibot:
@@ -31,3 +31,11 @@ outputs:
     dir: .
     options:
       format: png
+
+  - name: board_bottom
+    comment: "Bottom layer view"
+    type: pcbdraw
+    dir: .
+    options:
+      format: png
+      bottom: true
