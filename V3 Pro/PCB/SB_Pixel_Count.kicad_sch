@@ -1660,6 +1660,218 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Scotts:SW_PUSH_6mm"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "SW"
+				(at 1.27 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "SW_PUSH_6mm"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Scotts:SW_PUSH_6mm"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Push button switch, 4-leg THT 6mm tactile. Legs 3/4 are redundant mechanical duplicates of legs 1/2 (same nets internally) - left as no-connect since the footprint leaves those pads netless."
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "switch normally-open pushbutton push-button"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "SW_PUSH_6mm_0_1"
+				(polyline
+					(pts
+						(xy -2.54 0) (xy -2.54 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type dash)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center -2.032 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 1.27) (xy 0 3.048)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.032 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 1.27) (xy -2.54 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 0) (xy 2.54 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type dash)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "SW_PUSH_6mm_1_1"
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 2.54)
+					(name "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -2.54 180)
+					(length 2.54)
+					(name "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Sensor_Energy:INA219BxD"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -1869,156 +2081,6 @@
 					(at 10.16 -5.08 180)
 					(length 2.54)
 					(name "A0"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "Switch:SW_Push"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 1.016)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "SW"
-				(at 1.27 2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "SW_Push"
-				(at 0 -1.524 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Push button switch, generic, two pins"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "switch normally-open pushbutton push-button"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "SW_Push_0_1"
-				(circle
-					(center -2.032 0)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 1.27) (xy 0 3.048)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 2.032 0)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 1.27) (xy -2.54 1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2847,6 +2909,12 @@
 		(uuid "310ab614-7347-4929-b344-df744421ff56")
 	)
 	(junction
+		(at 243.84 125.73)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "350f90a6-40ef-4184-9298-b5099053bcb4")
+	)
+	(junction
 		(at 97.155 55.245)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2871,6 +2939,12 @@
 		(uuid "99b57dad-3f5e-4b29-8a55-99fba4719a3a")
 	)
 	(junction
+		(at 243.84 139.7)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "aa3287e6-8885-40c5-a4b8-c0c4771d5b3d")
+	)
+	(junction
 		(at 137.16 163.83)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2881,6 +2955,14 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d4815b1b-93ca-42dd-aaa3-37859c680078")
+	)
+	(no_connect
+		(at 233.68 128.27)
+		(uuid "6a1d2184-f592-4095-bfdc-adfb8f908496")
+	)
+	(no_connect
+		(at 233.68 142.24)
+		(uuid "7c4109de-3685-4c2e-a0e8-74c1c1437a31")
 	)
 	(no_connect
 		(at 118.11 53.34)
@@ -2925,6 +3007,26 @@
 			(type default)
 		)
 		(uuid "13084f5e-9215-49f8-8552-13f8ad286549")
+	)
+	(wire
+		(pts
+			(xy 248.92 139.7) (xy 243.84 139.7)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "146fce9a-56f6-4863-a4a1-af0d5dd63650")
+	)
+	(wire
+		(pts
+			(xy 243.84 139.7) (xy 243.84 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "33eea705-1134-47ba-b997-bc5a306ce7f7")
 	)
 	(wire
 		(pts
@@ -2995,6 +3097,16 @@
 			(type default)
 		)
 		(uuid "799b9685-461d-464b-8ba8-db5bf24782a8")
+	)
+	(wire
+		(pts
+			(xy 243.84 125.73) (xy 243.84 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "895f1ab2-1d38-44b8-a345-9ca5fb886ddb")
 	)
 	(wire
 		(pts
@@ -3125,6 +3237,16 @@
 			(type default)
 		)
 		(uuid "ee2a854e-96c3-43bb-9fc5-95a960aa28c7")
+	)
+	(wire
+		(pts
+			(xy 248.92 125.73) (xy 243.84 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f0ddb15d-5970-453d-859f-9a191f8cf321")
 	)
 	(wire
 		(pts
@@ -3318,7 +3440,7 @@
 	)
 	(global_label "SW1"
 		(shape input)
-		(at 233.045 125.095 180)
+		(at 233.68 125.73 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3328,7 +3450,7 @@
 		)
 		(uuid "4a024478-d54c-4106-aa28-9fdb0391680b")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 226.7614 125.1744 0)
+			(at 227.3964 125.8094 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4600,7 +4722,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 243.84 139.7 0)
+		(at 248.92 139.7 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4608,7 +4730,7 @@
 		(dnp no)
 		(uuid "37e0fc21-0a80-4bb0-a1ac-dcae5f31a0f5")
 		(property "Reference" "#PWR018"
-			(at 243.84 146.05 0)
+			(at 248.92 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4617,7 +4739,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 243.967 143.51 0)
+			(at 249.047 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4625,7 +4747,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 243.84 139.7 0)
+			(at 248.92 139.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4634,7 +4756,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 243.84 139.7 0)
+			(at 248.92 139.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4643,7 +4765,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 243.84 139.7 0)
+			(at 248.92 139.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4664,7 +4786,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Switch:SW_Push")
+		(lib_id "Scotts:SW_PUSH_6mm")
 		(at 238.76 139.7 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4674,22 +4796,22 @@
 		(fields_autoplaced yes)
 		(uuid "37f060a5-ad70-4671-9862-ab95c23745b6")
 		(property "Reference" "SW2"
-			(at 238.76 131.445 0)
+			(at 238.76 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "Test"
-			(at 238.76 133.985 0)
+		(property "Value" "Menu"
+			(at 238.76 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm"
+		(property "Footprint" "Scotts:SW_PUSH_6mm"
 			(at 238.76 134.62 0)
 			(effects
 				(font
@@ -4707,7 +4829,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Push button switch, 4-leg THT 6mm tactile. Legs 3/4 are redundant mechanical duplicates of legs 1/2 (same nets internally) - left as no-connect since the footprint leaves those pads netless."
 			(at 238.76 139.7 0)
 			(effects
 				(font
@@ -4748,6 +4870,12 @@
 		)
 		(pin "2"
 			(uuid "f9c3406e-1c8d-4c77-9ba9-cadaf0153cc7")
+		)
+		(pin "4"
+			(uuid "3f12ba8e-822b-44b7-8769-7cc381509132")
+		)
+		(pin "3"
+			(uuid "fb9c5a6e-34f1-40a5-8f3a-f174f1c1b4e5")
 		)
 		(instances
 			(project "SB_Pixel_Count"
@@ -5360,7 +5488,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 243.205 125.095 0)
+		(at 248.92 125.73 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5368,7 +5496,7 @@
 		(dnp no)
 		(uuid "51842de1-839f-4910-80a8-8c5ce9741cc1")
 		(property "Reference" "#PWR011"
-			(at 243.205 131.445 0)
+			(at 248.92 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5377,7 +5505,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 243.332 128.905 0)
+			(at 249.047 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5385,7 +5513,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 243.205 125.095 0)
+			(at 248.92 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5394,7 +5522,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 243.205 125.095 0)
+			(at 248.92 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5403,7 +5531,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 243.205 125.095 0)
+			(at 248.92 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5530,8 +5658,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Switch:SW_Push")
-		(at 238.125 125.095 0)
+		(lib_id "Scotts:SW_PUSH_6mm")
+		(at 238.76 125.73 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5540,7 +5668,7 @@
 		(fields_autoplaced yes)
 		(uuid "672ccb28-a185-4cce-b244-6e326caf4958")
 		(property "Reference" "SW1"
-			(at 238.125 116.84 0)
+			(at 238.76 117.475 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5548,15 +5676,15 @@
 			)
 		)
 		(property "Value" "Test"
-			(at 238.125 119.38 0)
+			(at 238.76 120.015 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm"
-			(at 238.125 120.015 0)
+		(property "Footprint" "Scotts:SW_PUSH_6mm"
+			(at 238.76 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5565,7 +5693,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 238.125 120.015 0)
+			(at 238.76 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5573,8 +5701,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 238.125 125.095 0)
+		(property "Description" "Push button switch, 4-leg THT 6mm tactile. Legs 3/4 are redundant mechanical duplicates of legs 1/2 (same nets internally) - left as no-connect since the footprint leaves those pads netless."
+			(at 238.76 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5583,7 +5711,7 @@
 			)
 		)
 		(property "LCSC" "C2834918"
-			(at 238.125 125.095 0)
+			(at 238.76 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5592,7 +5720,7 @@
 			)
 		)
 		(property "Digi-Key_PN" "CKN10880CT-ND"
-			(at 238.125 125.095 0)
+			(at 238.76 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5601,7 +5729,7 @@
 			)
 		)
 		(property "MPN" "PTS645SL43SMTR92 LFS"
-			(at 238.125 125.095 0)
+			(at 238.76 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5614,6 +5742,12 @@
 		)
 		(pin "2"
 			(uuid "e80e77d5-760e-4c75-af39-8db30115bbf5")
+		)
+		(pin "3"
+			(uuid "1941ea23-89fe-4384-ac9b-aa3dc4c88f03")
+		)
+		(pin "4"
+			(uuid "b3cf8809-6390-449e-9e58-5e427aba9d27")
 		)
 		(instances
 			(project "ESP8266_Count"
