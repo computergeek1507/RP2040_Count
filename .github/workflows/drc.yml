@@ -44,13 +44,30 @@ jobs:
         rm -rf SB_Pixel_Count/
         kibot -c ../../.github/workflows/scripts/kibot/drc.config.kibot.yaml -e SB_Pixel_Count.kicad_sch -b SB_Pixel_Count.kicad_pcb -d SB_Pixel_Count
 
-
-
     - name: Upload Export Files as Artifacts
       uses: actions/upload-artifact@v4
       with:
         name: output-${{ matrix.variant }}
         path: |
           ${{ matrix.variant }}/PCB/SB_Pixel_Count/**
+        if-no-files-found: error
+        retention-days: 60
+
+    # Runs even if DRC above found violations, so a PCB image and
+    # schematic PDF are always available to review in CI.
+    - name: Render Schematic PDF + PCB Image (${{ matrix.variant }})
+      if: always()
+      run: |
+        cd "${{ matrix.variant }}/PCB"
+        rm -rf SB_Pixel_Count_Render/
+        kibot -c ../../.github/workflows/scripts/kibot/render.config.kibot.yaml -e SB_Pixel_Count.kicad_sch -b SB_Pixel_Count.kicad_pcb -d SB_Pixel_Count_Render
+
+    - name: Upload Render Files as Artifacts
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: render-${{ matrix.variant }}
+        path: |
+          ${{ matrix.variant }}/PCB/SB_Pixel_Count_Render/**
         if-no-files-found: error
         retention-days: 60

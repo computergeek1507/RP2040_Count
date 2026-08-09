@@ -1,0 +1,33 @@
+# Render-only KiBot config: schematic PDF + PCB top-view image.
+# Unlike drc.config.kibot.yaml, run_drc is disabled here so this always
+# produces output even when a board has open DRC violations.
+kibot:
+  version: 1
+
+global:
+  variant: default
+
+variants:
+  - name: default
+    comment: 'Just a place holder for the rotation filter'
+    type: kibom
+    variant: default
+
+preflight:
+  run_erc: false
+  run_drc: false
+
+outputs:
+  - name: 'print_sch'
+    comment: "Print schematic (PDF)"
+    type: pdf_sch_print
+    dir: .
+    options:
+      output: Schematic.pdf
+
+  - name: board_top
+    comment: "Top layer view"
+    type: pcbdraw
+    dir: .
+    options:
+      format: png

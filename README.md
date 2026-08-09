@@ -9,6 +9,9 @@ You may redistribute and modify this documentation under the terms of the CERN O
 
 # SB Pixel Count
 
+[![Compile Sketch](https://github.com/computergeek1507/SB_Pixel_Count/actions/workflows/compile.yml/badge.svg)](https://github.com/computergeek1507/SB_Pixel_Count/actions/workflows/compile.yml)
+[![DRC Files](https://github.com/computergeek1507/SB_Pixel_Count/actions/workflows/drc.yml/badge.svg)](https://github.com/computergeek1507/SB_Pixel_Count/actions/workflows/drc.yml)
+
 SB Pixel Count is a 'pocket' Pixel Counter. The original (V1) board uses a Waveshare RP2040-Tiny Development Board.  All the design files are open source and available on github.
 
 To order PCBs upload the ["GERBER-SB_Pixel_Count.zip"](https://github.com/computergeek1507/SB_Pixel_Count/raw/main/V1/PCB/jlcpcb/production_files/GERBER-SB_Pixel_Count.zip) file in the "V1\PCB\jlcpcb\production_files" folder to jlcpcb.com. Use the "BOM-SB_Pixel_Count.csv" for the JLC Assembly BOM and "CPL-SB_Pixel_Count.csv" as the footprint placement file.
