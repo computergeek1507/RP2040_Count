@@ -26,20 +26,18 @@ Print the case out of PETG with 0.1mm layer height. Use #2-56 3/8" machine screw
 
 This repo tracks a few PCB/firmware revisions side by side. `Firmware/SB_Pixel_Count/BoardConfig.h` selects the pin mapping for each via a build flag (`VERSION1`/`VERSION2`/`VERSION3`); the default is `VERSION2`.
 
-| Variant | Folder | MCU module | Firmware | Notes |
-| --- | --- | --- | --- | --- |
-| V1 (Original) | [`V1/`](https://github.com/computergeek1507/SB_Pixel_Count/tree/main/V1) | Waveshare RP2040-Tiny | `VERSION1` | The board described above. |
-| V2 | [`V2/`](https://github.com/computergeek1507/SB_Pixel_Count/tree/main/V2) | Seeed XIAO RP2040 | `VERSION2` (default) | Standard redesign around the XIAO RP2040 module - firmware updates over USB (drag-and-drop UF2), no external programmer needed. |
-| V2 Lite | [`V2 Lite/`](https://github.com/computergeek1507/SB_Pixel_Count/tree/main/V2%20Lite) | ATtiny1614 (megaTinyCore) | [`Firmware/ATtiny1614_Count/`](https://github.com/computergeek1507/SB_Pixel_Count/tree/main/Firmware/ATtiny1614_Count) | Cost-reduced BOM built around a bare ATtiny1614 instead of a RP2040 module; trades USB firmware updates for a UPDI programmer requirement. Uses FAB_LED/SSD1306Ascii instead of the Adafruit libraries to fit in 16KB flash / 2KB RAM. Shares the same case as V2 (`V2/Case/` and `V2 Lite/Case/` are the same design). |
-| V3 Pro | [`V3 Pro/`](https://github.com/computergeek1507/SB_Pixel_Count/tree/main/V3%20Pro) | Seeed XIAO RP2040 | `VERSION3` | Adds a second button and a microSD card slot for playing back xLights FSEQ sequences on the strip (`Firmware/SB_Pixel_Count/FseqPlayer.*`). |
+| Variant | Folder | MCU module | Firmware | Interactive BOM | Notes |
+| --- | --- | --- | --- | --- | --- |
+| V1 (Original) | [`V1/`](https://github.com/computergeek1507/SB_Pixel_Count/tree/main/V1) | Waveshare RP2040-Tiny | `VERSION1` | [Open](https://computergeek1507.github.io/SB_Pixel_Count/V1/PCB/bom/ibom.html) | The board described above. |
+| V2 | [`V2/`](https://github.com/computergeek1507/SB_Pixel_Count/tree/main/V2) | Seeed XIAO RP2040 | `VERSION2` (default) | [Open](https://computergeek1507.github.io/SB_Pixel_Count/V2/PCB/bom/ibom.html) | Standard redesign around the XIAO RP2040 module - firmware updates over USB (drag-and-drop UF2), no external programmer needed. |
+| V2 Lite | [`V2 Lite/`](https://github.com/computergeek1507/SB_Pixel_Count/tree/main/V2%20Lite) | ATtiny1614 (megaTinyCore) | [`Firmware/ATtiny1614_Count/`](https://github.com/computergeek1507/SB_Pixel_Count/tree/main/Firmware/ATtiny1614_Count) | [Open](https://computergeek1507.github.io/SB_Pixel_Count/V2%20Lite/PCB/bom/ibom.html) | Cost-reduced BOM built around a bare ATtiny1614 instead of a RP2040 module; trades USB firmware updates for a UPDI programmer requirement. Uses FAB_LED/SSD1306Ascii instead of the Adafruit libraries to fit in 16KB flash / 2KB RAM. Shares the same case as V2 (`V2/Case/` and `V2 Lite/Case/` are the same design). |
+| V3 Pro | [`V3 Pro/`](https://github.com/computergeek1507/SB_Pixel_Count/tree/main/V3%20Pro) | Seeed XIAO RP2040 | `VERSION3` | [Open](https://computergeek1507.github.io/SB_Pixel_Count/V3%20Pro/PCB/bom/ibom.html) | Adds a second button and a microSD card slot for playing back xLights FSEQ sequences on the strip (`Firmware/SB_Pixel_Count/FseqPlayer.*`). |
 
 Each variant folder that has its own `PCB/` directory also has its own `jlcpcb/production_files` gerbers/BOM/CPL for ordering that specific board.
 
 ## [Video of SB Pixel Count](https://youtu.be/7ThN9TBFA-g)
 
 ## [Part BOM](https://github.com/computergeek1507/SB_Pixel_Count/raw/main/V1/PCB/SB_Pixel_Count_BOM.ods)
-
-## [Interactive BOM](https://computergeek1507.github.io/SB_Pixel_Count/V1/PCB/bom/ibom)
 
 ![Image of SB Pixel Count](https://github.com/computergeek1507/SB_Pixel_Count/raw/main/PXL_20240302_150726946.jpg)
 
